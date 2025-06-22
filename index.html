@@ -47,7 +47,7 @@
   <!-- DJ audio player -->
   <div class="dj-player">
     <img src="images/art1.jpg" alt="florecer EP cover">
-    <button id="play-btn">▶️</button>
+<button id="play-btn">►</button> <!-- retro triangle play -->
     <span id="track-label">now spinning: <strong>florecer EP</strong></span>
     <audio id="dj-player" src="audio/track.mp3" loop preload="auto"></audio>
   </div>
@@ -84,18 +84,18 @@
   </div>
 
   <script>
-    const audio = document.getElementById('dj-player');
-    const playBtn = document.getElementById('play-btn');
+const audio = document.getElementById('dj-player');
+const playBtn = document.getElementById('play-btn');
 
-    playBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        playBtn.textContent = '⏸';
-      } else {
-        audio.pause();
-        playBtn.textContent = '▶️';
-      }
-    });
+playBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = '❚❚';  // retro pause symbol
+  } else {
+    audio.pause();
+    playBtn.textContent = '►';   // retro play symbol
+  }
+});
   </script>
 </body>
 </html>
