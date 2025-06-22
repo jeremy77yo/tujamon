@@ -5,9 +5,43 @@
   <title>tu jamon</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* DJ player overlay */
+    .dj-player {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 0.6rem 1rem;
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      z-index: 20;
+    }
+    .dj-player button{
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .dj-player button:hover{ transform: scale(1.15); }
+  </style>
 </head>
 <body>
   <h1>tu jamon</h1>
+
+  <!-- DJ audio player -->
+  <div class="dj-player">
+    <button id="play-btn">▶️</button>
+    <span id="track-label">now spinning: <strong>demo-track</strong></span>
+    <audio id="dj-player" src="audio/track.mp3" loop preload="auto"></audio>
+  </div>
 
   <!-- artwork collage -->
   <a href="art1.html" class="artwork art1 md"><img src="images/art1.jpg" alt="art1"></a>
@@ -39,5 +73,21 @@
     <a href="mailto:jeremy77yo@gmail.com">email</a><br>
     <a href="bio.html">bio</a>
   </div>
+
+  <script>
+    const audio = document.getElementById('dj-player');
+    const playBtn = document.getElementById('play-btn');
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '⏸';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶️';
+      }
+    });
+  </script>
 </body>
 </html>
+
