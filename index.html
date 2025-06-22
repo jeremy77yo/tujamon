@@ -44,13 +44,16 @@
 <body>
   <h1>tu jamon</h1>
 
-  <!-- DJ audio player -->
-  <div class="dj-player">
-    <img src="images/art1.jpg" alt="florecer EP cover">
-<button id="play-btn">►</button> <!-- retro triangle play -->
-    <span id="track-label">now spinning: <strong>florecer EP</strong></span>
-    <audio id="dj-player" src="audio/track.mp3" loop preload="auto"></audio>
-  </div>
+<!-- DJ audio player -->
+<div class="dj-player">
+  <button id="play-btn">►</button>
+  <a href="https://open.spotify.com/artist/6oXRL2Q3ua59romL7GoA7h?si=U4ermHVDRq2iD4ikTkBcFA" target="_blank" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: inherit;">
+    <img src="images/art1.jpg" alt="florecer ep" style="width: 40px; height: 40px; border-radius: 4px; border: 1px solid #999;" />
+    <span id="track-label">now spinning: <strong>florecer ep</strong></span>
+  </a>
+  <audio id="dj-player" src="audio/track.mp3" loop preload="auto"></audio>
+</div>
+
 
   <!-- artwork collage -->
   <a href="art1.html" class="artwork art1 md"><img src="images/art1.jpg" alt="art1"></a>
