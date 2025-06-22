@@ -10,7 +10,7 @@
     .dj-player {
       position: fixed;
       bottom: 20px;
-      left: 20px;
+      right: 20px;
       background: rgba(255,255,255,0.9);
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -23,14 +23,22 @@
       gap: 0.8rem;
       z-index: 20;
     }
-    .dj-player button{
+    .dj-player button {
       background: none;
       border: none;
       font-size: 1.4rem;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .dj-player button:hover{ transform: scale(1.15); }
+    .dj-player button:hover {
+      transform: scale(1.15);
+    }
+    .dj-player img {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -38,8 +46,9 @@
 
   <!-- DJ audio player -->
   <div class="dj-player">
+    <img src="images/art1.jpg" alt="florecer EP cover">
     <button id="play-btn">▶️</button>
-    <span id="track-label">now spinning: <strong>demo-track</strong></span>
+    <span id="track-label">now spinning: <strong>florecer EP</strong></span>
     <audio id="dj-player" src="audio/track.mp3" loop preload="auto"></audio>
   </div>
 
@@ -90,4 +99,3 @@
   </script>
 </body>
 </html>
-
