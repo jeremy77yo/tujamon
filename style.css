@@ -36,7 +36,20 @@ h1 {
   border-radius: 8px;
 }
 
-/* Manual placements (these should match the index.html classes) */
+/* Size variations */
+.sm img {
+  width: 120px;
+}
+
+.md img {
+  width: 160px;
+}
+
+.lg img {
+  width: 220px;
+}
+
+/* Manual placements for artwork */
 .art1 { top: 80px; left: 40px; transform: rotate(-2deg); }
 .art2 { top: 100px; left: 220px; transform: rotate(3deg); }
 .art3 { top: 260px; left: 120px; transform: rotate(-4deg); }
@@ -49,6 +62,14 @@ h1 {
 .art10 { top: 1080px; left: 100px; transform: rotate(3deg); }
 .art11 { top: 1200px; left: 250px; transform: rotate(-4deg); }
 .art12 { top: 1320px; left: 60px; transform: rotate(1deg); }
+
+.art13 { top: 1450px; left: 180px; transform: rotate(-3deg); }
+.art14 { top: 1580px; left: 80px; transform: rotate(2deg); }
+.art15 { top: 1680px; left: 260px; transform: rotate(-2deg); }
+.art16 { top: 1800px; left: 40px; transform: rotate(1deg); }
+.art17 { top: 1930px; left: 200px; transform: rotate(4deg); }
+.art18 { top: 2050px; left: 100px; transform: rotate(-1deg); }
+.art19 { top: 2200px; left: 240px; transform: rotate(3deg); }
 
 /* Side links box */
 .side-links {
@@ -76,3 +97,4 @@ h1 {
   color: #000;
   text-decoration: underline;
 }
+
