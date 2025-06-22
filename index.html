@@ -2,41 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>tu jamon</title>
+  <title>T. Jamon</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      background: url('images/paper-texture.jpg') repeat;
+      font-family: 'Syne Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 2rem;
+      color: #111;
+    }
+
+    .artwork {
+      position: absolute;
+      transition: transform 0.3s ease;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .artwork:hover {
+      transform: scale(1.05) rotate(1deg);
+      z-index: 10;
+    }
+
+    .artwork img {
+      width: 150px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* Example positions — adjust for visual balance */
+    .art1 { top: 80px; left: 40px; transform: rotate(-2deg); }
+    .art2 { top: 100px; left: 220px; transform: rotate(3deg); }
+    .art3 { top: 260px; left: 120px; transform: rotate(-4deg); }
+    .art4 { top: 320px; left: 300px; transform: rotate(2deg); }
+    .art5 { top: 480px; left: 180px; transform: rotate(-3deg); }
+    .art6 { top: 580px; left: 60px; transform: rotate(1deg); }
+    .art7 { top: 700px; left: 240px; transform: rotate(-1deg); }
+    .art8 { top: 840px; left: 140px; transform: rotate(2deg); }
+    .art9 { top: 940px; left: 320px; transform: rotate(-2deg); }
+    .art10 { top: 1080px; left: 100px; transform: rotate(3deg); }
+    .art11 { top: 1200px; left: 250px; transform: rotate(-4deg); }
+    .art12 { top: 1320px; left: 60px; transform: rotate(1deg); }
+
+    .side-links {
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      background: rgba(255,255,255,0.85);
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.8rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .side-links a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .side-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="layout">
 
-    <!-- artwork grid -->
-    <div class="gallery">
-      <div class="art"><a href="art1.html"><img src="images/art1.jpg" alt="Cool art title 1"></a></div>
-      <div class="art"><a href="art2.html"><img src="images/art2.jpg" alt="Cool art title 2"></a></div>
-      <div class="art"><a href="art3.html"><img src="images/art3.jpg" alt="Cool art title 3"></a></div>
-      <div class="art"><a href="art4.html"><img src="images/art4.jpg" alt="Cool art title 4"></a></div>
-      <div class="art"><a href="art5.html"><img src="images/art5.jpg" alt="Cool art title 5"></a></div>
-      <div class="art"><a href="art6.html"><img src="images/art6.jpg" alt="Cool art title 6"></a></div>
-      <div class="art"><a href="art7.html"><img src="images/art7.jpg" alt="Cool art title 7"></a></div>
-      <div class="art"><a href="art8.html"><img src="images/art8.jpg" alt="Cool art title 8"></a></div>
-      <div class="art"><a href="art9.html"><img src="images/art9.jpg" alt="Cool art title 9"></a></div>
-      <div class="art"><a href="art10.html"><img src="images/art10.jpg" alt="Cool art title 10"></a></div>
-      <div class="art"><a href="art11.html"><img src="images/art11.jpg" alt="Cool art title 11"></a></div>
-      <div class="art"><a href="art12.html"><img src="images/art12.jpg" alt="Cool art title 12"></a></div>
+  <h1> tu jamon</h1>
 
-    </div>
+  <!-- artwork as collage -->
+  <a href="art1.html" class="artwork art1"><img src="images/art1.jpg" alt="art1"></a>
+  <a href="art2.html" class="artwork art2"><img src="images/art2.jpg" alt="art2"></a>
+  <a href="art3.html" class="artwork art3"><img src="images/art3.jpg" alt="art3"></a>
+  <a href="art4.html" class="artwork art4"><img src="images/art4.jpg" alt="art4"></a>
+  <a href="art5.html" class="artwork art5"><img src="images/art5.jpg" alt="art5"></a>
+  <a href="art6.html" class="artwork art6"><img src="images/art6.jpg" alt="art6"></a>
+  <a href="art7.html" class="artwork art7"><img src="images/art7.jpg" alt="art7"></a>
+  <a href="art8.html" class="artwork art8"><img src="images/art8.jpg" alt="art8"></a>
+  <a href="art9.html" class="artwork art9"><img src="images/art9.jpg" alt="art9"></a>
+  <a href="art10.html" class="artwork art10"><img src="images/art10.jpg" alt="art10"></a>
+  <a href="art11.html" class="artwork art11"><img src="images/art11.jpg" alt="art11"></a>
+  <a href="art12.html" class="artwork art12"><img src="images/art12.jpg" alt="art12"></a>
 
-    <!-- right-side links -->
-    <div class="side-links">
-      <a href="https://open.spotify.com/artist/6oXRL2Q3ua59romL7GoA7h?si=U4ermHVDRq2iD4ikTkBcFA" target="_blank">spotify</a><br>
-      <a href="https://music.apple.com/es/artist/tu-jamon/1790360666" target="_blank">apple</a><br>
-      <a href="https://soundcloud.com/jeremy-roberts-839586005" target="_blank">soundCloud</a><br>
-      <a href="https://www.instagram.com/tujam0n/?hl=en" target="_blank">instagram</a><br>
-      <a href="mailto:jeremy77yo@gmail.com">email</a><br>
-      <a href="bio.html">bio</a>
-    </div>
-
+  <!-- links -->
+  <div class="side-links">
+    <a href="https://open.spotify.com/artist/6oXRL2Q3ua59romL7GoA7h?si=U4ermHVDRq2iD4ikTkBcFA" target="_blank">spotify</a><br>
+    <a href="https://music.apple.com/es/artist/tu-jamon/1790360666" target="_blank">apple</a><br>
+    <a href="https://soundcloud.com/jeremy-roberts-839586005" target="_blank">soundCloud</a><br>
+    <a href="https://www.instagram.com/tujam0n/?hl=en" target="_blank">instagram</a><br>
+    <a href="mailto:jeremy77yo@gmail.com">email</a><br>
+    <a href="bio.html">bio</a>
   </div>
+
 </body>
 </html>
