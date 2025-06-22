@@ -5,6 +5,18 @@ body {
   font-family: 'Syne Mono', monospace;
   overflow-x: hidden;
   color: #111;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: url('images/overlay-texture.png') repeat;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Site title */
@@ -14,6 +26,7 @@ h1 {
   left: 20px;
   font-size: 2rem;
   color: #111;
+  z-index: 10;
 }
 
 /* Artwork grid - freestyle collage layout */
@@ -22,6 +35,7 @@ h1 {
   transition: transform 0.3s ease;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 1;
 }
 
 .artwork:hover {
@@ -34,42 +48,35 @@ h1 {
   height: auto;
   display: block;
   border-radius: 8px;
+  padding: 5px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  filter: contrast(1.05) brightness(0.98) saturate(0.85);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
-/* Size variations */
-.sm img {
-  width: 120px;
-}
-
-.md img {
-  width: 160px;
-}
-
-.lg img {
-  width: 220px;
-}
-
-/* Manual placements for artwork */
-.art1 { top: 80px; left: 40px; transform: rotate(-2deg); }
-.art2 { top: 100px; left: 220px; transform: rotate(3deg); }
-.art3 { top: 260px; left: 120px; transform: rotate(-4deg); }
-.art4 { top: 320px; left: 300px; transform: rotate(2deg); }
-.art5 { top: 480px; left: 180px; transform: rotate(-3deg); }
-.art6 { top: 580px; left: 60px; transform: rotate(1deg); }
-.art7 { top: 700px; left: 240px; transform: rotate(-1deg); }
-.art8 { top: 840px; left: 140px; transform: rotate(2deg); }
-.art9 { top: 940px; left: 320px; transform: rotate(-2deg); }
-.art10 { top: 1080px; left: 100px; transform: rotate(3deg); }
-.art11 { top: 1200px; left: 250px; transform: rotate(-4deg); }
-.art12 { top: 1320px; left: 60px; transform: rotate(1deg); }
-
-.art13 { top: 1450px; left: 180px; transform: rotate(-3deg); }
-.art14 { top: 1580px; left: 80px; transform: rotate(2deg); }
-.art15 { top: 1680px; left: 260px; transform: rotate(-2deg); }
-.art16 { top: 1800px; left: 40px; transform: rotate(1deg); }
-.art17 { top: 1930px; left: 200px; transform: rotate(4deg); }
-.art18 { top: 2050px; left: 100px; transform: rotate(-1deg); }
-.art19 { top: 2200px; left: 240px; transform: rotate(3deg); }
+/* Manual placements for each artwork */
+.art1 { top: 80px; left: 40px; transform: rotate(-2deg); z-index: 2; }
+.art2 { top: 100px; left: 220px; transform: rotate(3deg); z-index: 1; }
+.art3 { top: 260px; left: 120px; transform: rotate(-4deg); z-index: 3; }
+.art4 { top: 320px; left: 300px; transform: rotate(2deg); z-index: 2; }
+.art5 { top: 480px; left: 180px; transform: rotate(-3deg); z-index: 1; }
+.art6 { top: 580px; left: 60px; transform: rotate(1deg); z-index: 2; }
+.art7 { top: 700px; left: 240px; transform: rotate(-1deg); z-index: 3; }
+.art8 { top: 840px; left: 140px; transform: rotate(2deg); z-index: 1; }
+.art9 { top: 940px; left: 320px; transform: rotate(-2deg); z-index: 2; }
+.art10 { top: 1080px; left: 100px; transform: rotate(3deg); z-index: 1; }
+.art11 { top: 1200px; left: 250px; transform: rotate(-4deg); z-index: 3; }
+.art12 { top: 1320px; left: 60px; transform: rotate(1deg); z-index: 2; }
+.art13 { top: 1450px; left: 180px; transform: rotate(-3deg); z-index: 2; }
+.art14 { top: 1580px; left: 80px; transform: rotate(2deg); z-index: 1; }
+.art15 { top: 1650px; left: 300px; transform: rotate(-5deg); z-index: 3; }
+.art16 { top: 1780px; left: 140px; transform: rotate(1deg); z-index: 1; }
+.art17 { top: 1900px; left: 240px; transform: rotate(-2deg); z-index: 2; }
+.art18 { top: 2040px; left: 60px; transform: rotate(2deg); z-index: 3; }
+.art19 { top: 2160px; left: 180px; transform: rotate(-1deg); z-index: 2; }
 
 /* Side links box */
 .side-links {
@@ -84,6 +91,7 @@ h1 {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   max-width: 180px;
   text-align: left;
+  z-index: 5;
 }
 
 .side-links a {
@@ -97,4 +105,3 @@ h1 {
   color: #000;
   text-decoration: underline;
 }
-
