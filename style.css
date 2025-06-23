@@ -77,6 +77,7 @@ h1 {
 .art17 { top: 1900px; left: 240px; transform: rotate(-2deg); z-index: 2; }
 .art18 { top: 2040px; left: 60px; transform: rotate(2deg); z-index: 3; }
 .art19 { top: 2160px; left: 180px; transform: rotate(-1deg); z-index: 2; }
+.art20 {top: 2300px; left: 90px; transform: rotate(2deg); z-index: 2;}
 
 /* Side links box */
 .side-links {
