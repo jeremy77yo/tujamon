@@ -65,27 +65,26 @@ h1{
 
 /* ───────── Manual placements  ───────── */
 /* (top/left stay the same; replace previous transform with --angle + optional delay) */
-art1  { top:  60px;   left:  5vw;  --angle:-2deg; --delay:-2s; z-index:2; }
-.art2  { top: 120px;   left: 60vw;  --angle: 3deg;  --delay: 3s; z-index:1; }
-.art3  { top: 300px;   left: 30vw;  --angle:-4deg; --delay: 1s; z-index:3; }
-.art4  { top: 400px;   left: 80vw;  --angle: 2deg;  --delay:-1s; z-index:2; }
-.art5  { top: 500px;   left: 15vw;  --angle:-3deg; --delay: 4s; z-index:1; }
-.art6  { top: 600px;   left: 70vw;  --angle: 1deg;  --delay:-3s; z-index:2; }
-.art7  { top: 700px;   left: 40vw;  --angle:-1deg; --delay: 2s; z-index:3; }
-.art8  { top: 850px;   left: 85vw;  --angle: 2deg;  --delay:-4s; z-index:1; }
-.art9  { top: 950px;   left: 10vw;  --angle:-2deg; --delay: 5s; z-index:2; }
-.art10 { top:1100px;   left: 55vw;  --angle: 3deg;  --delay:-5s; z-index:1; }
-.art11 { top:1200px;   left: 90vw;  --angle:-4deg; --delay: 1s; z-index:3; }
-.art12 { top:1300px;   left: 25vw;  --angle: 1deg;  --delay:-2s; z-index:2; }
-.art13 { top:1450px;   left: 75vw;  --angle:-3deg; --delay: 4s; z-index:2; }
-.art14 { top: 200px;   left: 85vw;  --angle: 2deg;  --delay: 2s; z-index:2; }
-.art15 { top: 800px;   left: 50vw;  --angle:-2deg; --delay: 3s; z-index:2; }
-.art16 { top: 350px;   left: 20vw;  --angle: 1deg;  --delay: 1s; z-index:2; }
-.art17 { top: 900px;   left: 65vw;  --angle: 3deg;  --delay: 4s; z-index:2; }
-.art18 { top: 500px;   left: 35vw;  --angle:-1deg; --delay: 2s; z-index:2; }
-.art19 { top:1000px;   left: 80vw;  --angle: 2deg;  --delay: 3s; z-index:2; }
-.art20 { top: 600px;   left: 10vw;  --angle:-2deg; --delay: 1s; z-index:2; }
-/* style.css */
+art1  { top:  80px;  left: 70vw; --angle:-2deg; --delay:-2s; z-index:2; }
+.art2  { top: 160px;  left: 72vw; --angle: 3deg;  --delay: 3s; z-index:1; }
+.art3  { top: 240px;  left: 74vw; --angle:-4deg; --delay: 1s; z-index:3; }
+.art4  { top: 320px;  left: 76vw; --angle: 2deg;  --delay:-1s; z-index:2; }
+.art5  { top: 400px;  left: 78vw; --angle:-3deg; --delay: 4s; z-index:1; }
+.art6  { top: 480px;  left: 70vw; --angle: 1deg;  --delay:-3s; z-index:2; }
+.art7  { top: 560px;  left: 72vw; --angle:-1deg; --delay: 2s; z-index:3; }
+.art8  { top: 640px;  left: 74vw; --angle: 2deg;  --delay:-4s; z-index:1; }
+.art9  { top: 720px;  left: 76vw; --angle:-2deg; --delay: 5s; z-index:2; }
+.art10 { top: 800px;  left: 78vw; --angle: 3deg;  --delay:-5s; z-index:1; }
+.art11 { top: 880px;  left: 70vw; --angle:-4deg; --delay: 1s; z-index:3; }
+.art12 { top: 960px;  left: 72vw; --angle: 1deg;  --delay:-2s; z-index:2; }
+.art13 { top:1040px;  left: 74vw; --angle:-3deg; --delay: 4s; z-index:2; }
+.art14 { top:1120px;  left: 76vw; --angle: 2deg;  --delay: 2s; z-index:2; }
+.art15 { top:1200px;  left: 78vw; --angle:-2deg; --delay: 3s; z-index:2; }
+.art16 { top:1280px;  left: 70vw; --angle: 1deg;  --delay: 1s; z-index:2; }
+.art17 { top:1360px;  left: 72vw; --angle: 3deg;  --delay: 4s; z-index:2; }
+.art18 { top:1440px;  left: 74vw; --angle:-1deg; --delay: 2s; z-index:2; }
+.art19 { top:1520px;  left: 76vw; --angle: 2deg;  --delay: 3s; z-index:2; }
+.art20 { top:1600px;  left: 78vw; --angle:-2deg; --delay: 1s; z-index:2; }
 
 
 .side-links {
