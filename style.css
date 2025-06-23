@@ -165,13 +165,13 @@ h1{
     max-width: 95vw;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px 8px;
+    gap: 2px;
+    padding: 6px 4px;
     font-size: 0.98rem;
     z-index: 30;
   }
   .side-links a {
-    padding: 4px 8px;
+    padding: 2px 4px;
     font-size: 1rem;
   }
   .dj-player {
