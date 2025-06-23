@@ -118,3 +118,70 @@ art1  { top:  60px;   left:  5vw;  --angle:-2deg; --delay:-2s; z-index:2; }
   background: #f2e9e1;
   color: #b85c2b;
 }
+@media (max-width: 800px) {
+  .artwork {
+    width: 90px !important;
+  }
+  .artwork img {
+    width: 90px !important;
+    padding: 2px;
+  }
+  /* Reposition artworks to fit smaller screens */
+  .art1  { top:  40px;  left:  5vw; }
+  .art2  { top: 100px;  left: 40vw; }
+  .art3  { top: 180px;  left: 10vw; }
+  .art4  { top: 260px;  left: 60vw; }
+  .art5  { top: 340px;  left: 20vw; }
+  .art6  { top: 420px;  left: 50vw; }
+  .art7  { top: 500px;  left: 30vw; }
+  .art8  { top: 580px;  left: 70vw; }
+  .art9  { top: 660px;  left: 15vw; }
+  .art10 { top: 740px;  left: 45vw; }
+  .art11 { top: 820px;  left: 25vw; }
+  .art12 { top: 900px;  left: 55vw; }
+  .art13 { top: 980px;  left: 35vw; }
+  .art14 { top:1060px;  left: 65vw; }
+  .art15 { top:1140px;  left: 10vw; }
+  .art16 { top:1220px;  left: 40vw; }
+  .art17 { top:1300px;  left: 20vw; }
+  .art18 { top:1380px;  left: 60vw; }
+  .art19 { top:1460px;  left: 30vw; }
+  .art20 { top:1540px;  left: 50vw; }
+  .side-links {
+    position: fixed;
+    top: auto;
+    bottom: 90px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: 95vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 8px;
+    font-size: 0.98rem;
+    z-index: 30;
+  }
+  .side-links a {
+    padding: 4px 8px;
+    font-size: 1rem;
+  }
+  .dj-player {
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 10px !important;
+    width: auto !important;
+    max-width: 95vw;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    z-index: 40;
+  }
+}
+
+/* Prevent artworks from covering side-links and DJ player */
+.artwork {
+  z-index: 1;
+}
+.side-links, .dj-player {
+  z-index: 20;
+}
