@@ -86,3 +86,31 @@ h1{
 .art18{ top:2040px;  left: 60px; --angle: 2deg;  --delay:-4s; z-index:3; }
 .art19{ top:2160px;  left:180px; --angle:-1deg; --delay: 2s; z-index:2; }
 .art20{ top:2300px;  left: 90px; --angle: 2deg;  --delay:-5s; z-index:2; }
+
+.side-links {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 1rem 1.2rem;
+  z-index: 100;
+  font-family: 'Syne Mono', monospace;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.side-links a {
+  color: #222;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.side-links a:hover {
+  color: #b80000;
+  text-decoration: underline;
+}
