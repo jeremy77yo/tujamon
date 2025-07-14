@@ -94,6 +94,17 @@ h1{
 .art19 { top:1120px;  left: 100px;  --angle: 2deg;  --delay: 3s; z-index:2; }
 .art20 { top:1140px;  left: 320px;  --angle:-2deg; --delay: 1s; z-index:2; }
 
+.art21 { top: 1280px; left: 200px;  --angle: 2deg;  --delay: 2s; z-index:2; }
+.art22 { top: 1300px; left: 420px;  --angle:-3deg; --delay: 3s; z-index:2; }
+.art23 { top: 1470px; left: 180px;  --angle: 1deg;  --delay: 4s; z-index:2; }
+.art24 { top: 1490px; left: 380px;  --angle:-2deg; --delay: 1s; z-index:2; }
+.art25 { top: 1660px; left: 100px;  --angle: 3deg;  --delay: 2s; z-index:2; }
+.art26 { top: 1680px; left: 320px;  --angle:-1deg; --delay: 3s; z-index:2; }
+.art27 { top: 1850px; left: 220px;  --angle: 2deg;  --delay: 4s; z-index:2; }
+.art28 { top: 1870px; left: 440px;  --angle:-2deg; --delay: 1s; z-index:2; }
+.art29 { top: 2040px; left: 160px;  --angle: 1deg;  --delay: 2s; z-index:2; }
+.art30 { top: 2060px; left: 360px;  --angle:-3deg; --delay: 3s; z-index:2; }
+
 
 
 .side-links {
@@ -155,6 +166,16 @@ h1{
   .art18 { top:1380px;  left: 60vw; }
   .art19 { top:1460px;  left: 30vw; }
   .art20 { top:1540px;  left: 50vw; }
+  .art21 { top:1620px; left: 10vw; }
+  .art22 { top:1700px; left: 40vw; }
+  .art23 { top:1780px; left: 20vw; }
+  .art24 { top:1860px; left: 60vw; }
+  .art25 { top:1940px; left: 30vw; }
+  .art26 { top:2020px; left: 50vw; }
+  .art27 { top:2100px; left: 15vw; }
+  .art28 { top:2180px; left: 70vw; }
+  .art29 { top:2260px; left: 35vw; }
+  .art30 { top:2340px; left: 55vw; }
   .side-links {
     position: fixed;
     top: auto;
