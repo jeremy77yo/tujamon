@@ -97,20 +97,18 @@ h1{
 
 .art19 { top: 620px;  left: 100px;  --angle: 2deg;  --delay: 3s; z-index:2; }
 .art20 { top: 640px;  left: 240px;  --angle:-2deg; --delay: 1s; z-index:2; }
-.art20b{ top: 630px;  left: 360px;  --angle: 5deg;  --delay: 2s; z-index:2; }
-
 .art21 { top: 760px;  left: 60px;   --angle: 4deg;  --delay: 2s; z-index:2; }
+
 .art22 { top: 780px;  left: 200px;  --angle:-3deg; --delay: 3.5s; z-index:2; }
 .art23 { top: 750px;  left: 340px;  --angle: 1deg;  --delay: 1.5s; z-index:2; }
-
 .art24 { top: 880px;  left: 120px;  --angle:-4deg; --delay: 2.5s; z-index:2; }
+
 .art25 { top: 900px;  left: 260px;  --angle: 3deg;  --delay: 4s; z-index:2; }
 .art26 { top: 870px;  left: 400px;  --angle:-1deg; --delay: 2s; z-index:2; }
-
 .art27 { top: 1000px; left: 80px;   --angle: 2deg;  --delay: 3s; z-index:2; }
+
 .art28 { top: 1020px; left: 220px;  --angle:-2deg; --delay: 4.5s; z-index:2; }
 .art29 { top: 990px;  left: 360px;  --angle: 3deg;  --delay: 2.5s; z-index:2; }
-
 .art30 { top: 1120px; left: 180px;  --angle:-3deg; --delay: 3.5s; z-index:2; }
 
 /* ───────── Side links ───────── */
