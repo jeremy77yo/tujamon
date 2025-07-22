@@ -1,4 +1,5 @@
 /* style.css */
+/* ───────── Base page styles ───────── */
 body{
   margin:0;
   background:url('images/paper-texture.jpg') repeat;
@@ -7,6 +8,7 @@ body{
   color:#111;
   position:relative;
 }
+/* subtle grain overlay */
 body::before{
   content:"";
   position:fixed;inset:0;
@@ -15,25 +17,206 @@ body::before{
 }
 
 /* ───────── Site title ───────── */
-.site-title {
-  display: block;
-  margin: 0 auto;
-  padding-top: 32px;
-  padding-bottom: 16px;
-  text-align: center;
-  font-size: 2.2rem;
-  color: #111;
-  font-family: 'Syne Mono', monospace;
-  letter-spacing: 0.04em;
-  z-index: 10;
+h1{
+  position:absolute;
+  top:20px;
+  left:20px;
+  font-size:2rem;
+  color:#111;
+  z-index:10;
+}
+
+/* ───────── DJ player & side-links (unchanged) ───────── */
+.dj-player{/* ...keep as in your HTML... */}
+.side-links{/* ...see below... */}
+.side-links a{/* ...see below... */}
+
+/* ───────── Collage items ───────── */
+
+/* floating animation */
+@keyframes drift{
+  0%  { transform:translate(0,0)      rotate(var(--angle)); }
+  25% { transform:translate(10px,-8px) rotate(calc(var(--angle) + 2deg)); }
+  50% { transform:translate(-14px,9px) rotate(calc(var(--angle) - 1deg)); }
+  75% { transform:translate(8px,14px)  rotate(calc(var(--angle) + 3deg)); }
+  100%{ transform:translate(0,0)      rotate(var(--angle)); }
+}
+
+.artwork-collage {
   position: relative;
+  margin-top: 110px; /* ensures collage is not under the title */
+  min-height: 1900px;
 }
 
-/* Remove old h1 absolute positioning if present */
-h1 {
-  position: static !important;
-  left: unset !important;
-  top: unset !important;
+/* Collage artwork style */
+.artwork{
+  position:absolute;
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,0,0,.15);
+  transition:transform .3s ease;
+  z-index:1;
+  animation:drift 26s ease-in-out infinite;
+  animation-delay:var(--delay,0s);
+  will-change:transform;
+}
+.artwork:hover{
+  transform:scale(1.05) rotate(calc(var(--angle) + 1deg));
+  z-index:10;
 }
 
-/* ...rest of your CSS unchanged... */
+/* image styling */
+.artwork img{
+  width:150px;height:auto;display:block;
+  border-radius:8px;padding:5px;
+  background:rgba(255,255,255,.7);
+  border:1px solid #ddd;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+  filter:contrast(1.05) brightness(.98) saturate(.85);
+  aspect-ratio:1/1;object-fit:cover;
+}
+
+/* ───────── Manual placements: Collage, staggered, not under title ───────── */
+.art1  { top: 0px;    left: 40px;   --angle:-2deg; --delay:-2s; z-index:2; }
+.art2  { top: 20px;   left: 180px;  --angle: 3deg;  --delay: 3s; z-index:1; }
+.art3  { top: -10px;  left: 320px;  --angle:-4deg; --delay: 1s; z-index:3; }
+.art4  { top: 120px;  left: 100px;  --angle: 2deg;  --delay:-1s; z-index:2; }
+.art5  { top: 140px;  left: 240px;  --angle:-3deg; --delay: 4s; z-index:1; }
+.art6  { top: 110px;  left: 380px;  --angle: 1deg;  --delay:-3s; z-index:2; }
+.art7  { top: 220px;  left: 60px;   --angle:-1deg; --delay: 2s; z-index:3; }
+.art8  { top: 240px;  left: 200px;  --angle: 2deg;  --delay:-4s; z-index:1; }
+.art9  { top: 210px;  left: 340px;  --angle:-2deg; --delay: 5s; z-index:2; }
+.art10 { top: 320px;  left: 120px;  --angle: 3deg;  --delay:-5s; z-index:1; }
+.art11 { top: 340px;  left: 260px;  --angle:-4deg; --delay: 1s; z-index:3; }
+.art12 { top: 310px;  left: 400px;  --angle: 1deg;  --delay:-2s; z-index:2; }
+.art13 { top: 420px;  left: 80px;   --angle:-3deg; --delay: 4s; z-index:2; }
+.art14 { top: 440px;  left: 220px;  --angle: 2deg;  --delay: 2s; z-index:2; }
+.art15 { top: 410px;  left: 360px;  --angle:-2deg; --delay: 3s; z-index:2; }
+.art16 { top: 520px;  left: 140px;  --angle: 1deg;  --delay: 1s; z-index:2; }
+.art17 { top: 540px;  left: 280px;  --angle: 3deg;  --delay: 4s; z-index:2; }
+.art18 { top: 510px;  left: 420px;  --angle:-1deg; --delay: 2s; z-index:2; }
+.art19 { top: 620px;  left: 100px;  --angle: 2deg;  --delay: 3s; z-index:2; }
+.art20 { top: 640px;  left: 240px;  --angle:-2deg; --delay: 1s; z-index:2; }
+/* .art20b REMOVED */
+.art21 { top: 760px;  left: 60px;   --angle: 4deg;  --delay: 2s; z-index:2; }
+.art22 { top: 780px;  left: 200px;  --angle:-3deg; --delay: 3.5s; z-index:2; }
+.art23 { top: 750px;  left: 340px;  --angle: 1deg;  --delay: 1.5s; z-index:2; }
+.art24 { top: 880px;  left: 120px;  --angle:-4deg; --delay: 2.5s; z-index:2; }
+.art25 { top: 900px;  left: 260px;  --angle: 3deg;  --delay: 4s; z-index:2; }
+.art26 { top: 870px;  left: 400px;  --angle:-1deg; --delay: 2s; z-index:2; }
+.art27 { top: 1000px; left: 80px;   --angle: 2deg;  --delay: 3s; z-index:2; }
+.art28 { top: 1020px; left: 220px;  --angle:-2deg; --delay: 4.5s; z-index:2; }
+.art29 { top: 990px;  left: 360px;  --angle: 3deg;  --delay: 2.5s; z-index:2; }
+.art30 { top: 1120px; left: 180px;  --angle:-3deg; --delay: 3.5s; z-index:2; }
+
+/* ───────── Side links ───────── */
+.side-links {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  width: 160px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 18px 20px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.side-links a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 6px 0;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.side-links a:hover {
+  background: #f2e9e1;
+  color: #b85c2b;
+}
+
+/* ───────── Responsive: Mobile ───────── */
+@media (max-width: 800px) {
+  .artwork {
+    width: 90px !important;
+  }
+  .artwork img {
+    width: 90px !important;
+    padding: 2px;
+  }
+  /* Reposition artworks to fit smaller screens, keep collage look */
+  .art1  { top:  20px;  left:  5vw; }
+  .art2  { top:  60px;  left: 35vw; }
+  .art3  { top:  30px;  left: 65vw; }
+  .art4  { top: 100px;  left: 15vw; }
+  .art5  { top: 140px;  left: 45vw; }
+  .art6  { top: 110px;  left: 75vw; }
+  .art7  { top: 180px;  left: 25vw; }
+  .art8  { top: 220px;  left: 55vw; }
+  .art9  { top: 190px;  left: 85vw; }
+  .art10 { top: 260px;  left: 10vw; }
+  .art11 { top: 300px;  left: 40vw; }
+  .art12 { top: 270px;  left: 70vw; }
+  .art13 { top: 340px;  left: 20vw; }
+  .art14 { top: 380px;  left: 50vw; }
+  .art15 { top: 350px;  left: 80vw; }
+  .art16 { top: 420px;  left: 15vw; }
+  .art17 { top: 460px;  left: 45vw; }
+  .art18 { top: 430px;  left: 75vw; }
+  .art19 { top: 500px;  left: 25vw; }
+  .art20 { top: 540px;  left: 55vw; }
+  /* .art20b REMOVED */
+  .art21 { top: 600px;  left: 10vw; }
+  .art22 { top: 640px;  left: 40vw; }
+  .art23 { top: 610px;  left: 70vw; }
+  .art24 { top: 680px;  left: 20vw; }
+  .art25 { top: 720px;  left: 50vw; }
+  .art26 { top: 690px;  left: 80vw; }
+  .art27 { top: 760px;  left: 15vw; }
+  .art28 { top: 800px;  left: 45vw; }
+  .art29 { top: 770px;  left: 75vw; }
+  .art30 { top: 840px;  left: 30vw; }
+
+  .side-links {
+    position: fixed;
+    top: auto;
+    bottom: 90px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: 95vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 6px 4px;
+    font-size: 0.98rem;
+    z-index: 30;
+  }
+  .side-links a {
+    padding: 2px 4px;
+    font-size: 1rem;
+  }
+  .dj-player {
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 10px !important;
+    width: auto !important;
+    max-width: 95vw;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    z-index: 40;
+  }
+}
+
+/* Prevent artworks from covering side-links and DJ player */
+.artwork {
+  z-index: 1;
+}
+.side-links, .dj-player {
+  z-index: 20;
+}
