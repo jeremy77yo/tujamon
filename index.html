@@ -1,127 +1,33 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-<link rel="apple-touch-icon" href="images/favicon.png">
-
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>tu jamon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* DJ player overlay */
-    .dj-player {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 0.6rem 1rem;
-      font-family: 'Syne Mono', monospace;
-      font-size: 0.9rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      z-index: 20;
-    }
-    .dj-player button {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    .dj-player button:hover {
-      transform: scale(1.15);
-    }
-    .dj-player img {
-      width: 40px;
-      height: 40px;
-      border-radius: 4px;
-      object-fit: cover;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>tu jamon</h1>
+  <!-- Move the title to the top center -->
+  <header>
+    <h1 class="site-title">tu jamon</h1>
+  </header>
 
-<!-- DJ audio player -->
-<div class="dj-player">
-  <button id="play-btn">►</button>
-  <a href="https://open.spotify.com/artist/6oXRL2Q3ua59romL7GoA7h?si=U4ermHVDRq2iD4ikTkBcFA" target="_blank" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: inherit;">
-    <img src="images/art1.jpg" alt="florecer ep" style="width: 40px; height: 40px; border-radius: 4px; border: 1px solid #999;" />
-    <span id="track-label">now spinning: <strong>florecer ep</strong></span>
-  </a>
-  <audio id="dj-player" src="audio/track.mp3" loop preload="auto"></audio>
-</div>
+  <main>
+    <section class="now-spinning">
+      <span>florecer ep</span>
+      <strong>now spinning: <span class="ep-title">florecer ep</span></strong>
+    </section>
 
-<div class="artwork-collage">
-  <div class="artwork-collage">
-  <a href="art1.html" class="artwork art1"><img src="images/art1.jpg" alt="art1"></a>
-  <a href="art2.html" class="artwork art2"><img src="images/art2.jpg" alt="art2"></a>
-  <a href="art3.html" class="artwork art3"><img src="images/art3.jpg" alt="art3"></a>
-  <a href="art4.html" class="artwork art4"><img src="images/art4.jpg" alt="art4"></a>
-  <a href="art5.html" class="artwork art5"><img src="images/art5.jpg" alt="art5"></a>
-  <a href="art6.html" class="artwork art6"><img src="images/art6.jpg" alt="art6"></a>
-  <a href="art7.html" class="artwork art7"><img src="images/art7.jpg" alt="art7"></a>
-  <a href="art8.html" class="artwork art8"><img src="images/art8.jpg" alt="art8"></a>
-  <a href="art9.html" class="artwork art9"><img src="images/art9.jpg" alt="art9"></a>
-  <a href="art10.html" class="artwork art10"><img src="images/art10.jpg" alt="art10"></a>
-  <a href="art11.html" class="artwork art11"><img src="images/art11.jpg" alt="art11"></a>
-  <a href="art12.html" class="artwork art12"><img src="images/art12.jpg" alt="art12"></a>
-  <a href="art13.html" class="artwork art13"><img src="images/art13.jpg" alt="art13"></a>
-  <a href="art14.html" class="artwork art14"><img src="images/art14.jpg" alt="art14"></a>
-  <a href="art15.html" class="artwork art15"><img src="images/art15.jpg" alt="art15"></a>
-  <a href="art16.html" class="artwork art16"><img src="images/art16.jpg" alt="art16"></a>
-  <a href="art17.html" class="artwork art17"><img src="images/art17.jpg" alt="art17"></a>
-  <a href="art18.html" class="artwork art18"><img src="images/art18.jpg" alt="art18"></a>
-  <a href="art19.html" class="artwork art19"><img src="images/art19.jpg" alt="art19"></a>
-  <a href="art20.html" class="artwork art20"><img src="images/art20.jpg" alt="art20"></a>
-  <!-- NEW ARTWORK BETWEEN art20 and art21 -->
-  <a href="art20b.html" class="artwork art20b"><img src="images/art20b.jpg" alt="art20b"></a>
-  <a href="art21.html" class="artwork art21"><img src="images/art21.JPG" alt="art21"></a>
-  <a href="art22.html" class="artwork art22"><img src="images/art22.JPG" alt="art22"></a>
-  <a href="art23.html" class="artwork art23"><img src="images/art23.JPG" alt="art23"></a>
-  <a href="art24.html" class="artwork art24"><img src="images/art24.JPG" alt="art24"></a>
-  <a href="art25.html" class="artwork art25"><img src="images/art25.JPG" alt="art25"></a>
-  <a href="art26.html" class="artwork art26"><img src="images/art26.JPG" alt="art26"></a>
-  <a href="art27.html" class="artwork art27"><img src="images/art27.JPG" alt="art27"></a>
-  <a href="art28.html" class="artwork art28"><img src="images/art28.JPG" alt="art28"></a>
-  <a href="art29.html" class="artwork art29"><img src="images/art29.JPG" alt="art29"></a>
-  <a href="art30.html" class="artwork art30"><img src="images/art30.JPG" alt="art30"></a>
-</div>
+    <section class="art-list">
+      <!-- Removed art20b from the list below -->
+      art1 art2 art3 art4 art5 art6 art7 art8 art9 art10 art11 art12 art13 art14 art15 art16 art17 art18 art19 art20 art21 art22 art23 art24 art25 art26 art27 art28 art29 art30
+    </section>
 
-
-
-
-
-  <!-- links -->
-<div class="side-links">
-  <a href="https://open.spotify.com/artist/6oXRL2Q3ua59romL7GoA7h?si=U4ermHVDRq2iD4ikTkBcFA" target="_blank">spotify</a>
-  <a href="https://music.apple.com/es/artist/tu-jamon/1790360666" target="_blank">apple</a>
-  <a href="https://soundcloud.com/jeremy-roberts-839586005" target="_blank">soundCloud</a>
-  <a href="https://www.instagram.com/tujam0n/?hl=en" target="_blank">instagram</a>
-  <a href="mailto:jeremy77yo@gmail.com">email</a>
-  <a href="bio.html">bio</a>
-</div>
-
-  <script>
-const audio = document.getElementById('dj-player');
-const playBtn = document.getElementById('play-btn');
-
-playBtn.addEventListener('click', () => {
-  if (audio.paused) {
-    audio.play();
-    playBtn.textContent = '❚❚';  // retro pause symbol
-  } else {
-    audio.pause();
-    playBtn.textContent = '►';   // retro play symbol
-  }
-});
-  </script>
-</body>
-</html>
+    <nav class="links">
+      <a href="#">spotify</a>
+      <a href="#">apple</a>
+      <a href="#">soundCloud</a>
+      <a href="#">instagram</a>
+      <a href="mailto:your@email.com">email</a>
+      <a href="#">bio</a>
+    </nav>
