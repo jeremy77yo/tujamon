@@ -1,4 +1,5 @@
 ---
+sortOrder: 11
 title: "Art 17"
 image: /images/art17.jpg
 layout: artwork.njk

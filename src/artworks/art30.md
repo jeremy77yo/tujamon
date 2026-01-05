@@ -1,4 +1,5 @@
 ---
+sortOrder: 8
 title: "Art 30"
 image: /images/art30.jpg
 layout: artwork.njk

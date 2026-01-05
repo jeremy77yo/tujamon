@@ -1,4 +1,5 @@
 ---
+sortOrder: 57
 title: "Untitled 1"
 image: "/images/art1.jpg"
 tags: artworks

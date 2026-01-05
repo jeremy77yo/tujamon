@@ -1,4 +1,5 @@
 ---
+sortOrder: 3
 title: "Art 25"
 image: /images/art25.jpg
 layout: artwork.njk

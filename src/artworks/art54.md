@@ -1,4 +1,5 @@
 ---
+sortOrder: 58
 title: "Art 54"
 image: /images/art54.jpg
 layout: artwork.njk

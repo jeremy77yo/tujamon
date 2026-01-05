@@ -1,4 +1,5 @@
 ---
+sortOrder: 20
 title: "Untitled 7"
 image: "/images/art7.jpg"
 tags: artworks

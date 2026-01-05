@@ -5,7 +5,8 @@ module.exports = function (eleventyConfig) {
 
   // ✅ Create an "artworks" collection from all markdown files in src/artworks
   eleventyConfig.addCollection("artworks", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("src/artworks/*.md");
+    return collectionApi.getFilteredByGlob("src/artworks/*.md")
+      .sort((a, b) => (a.data.sortOrder || 999) - (b.data.sortOrder || 999));
   });
 
   return {

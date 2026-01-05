@@ -1,4 +1,5 @@
 ---
+sortOrder: 47
 title: "Art 20"
 image: /images/art20.jpg
 layout: artwork.njk

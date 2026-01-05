@@ -1,4 +1,5 @@
 ---
+sortOrder: 18
 title: "Art 45"
 image: /images/art45.jpg
 layout: artwork.njk

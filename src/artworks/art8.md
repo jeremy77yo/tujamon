@@ -1,4 +1,5 @@
 ---
+sortOrder: 25
 title: "Untitled 8"
 image: "/images/art8.jpg"
 tags: artworks
