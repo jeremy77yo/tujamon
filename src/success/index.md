@@ -1,10 +1,14 @@
 ---
-title: Success
+title: Thank You
 permalink: /success/
 layout: page.njk
 pageClass: page
 ---
 
-Thanks — your order went through.
+your order found its way through.
 
-If you have any issues, email me.
+i'll wrap it with care and send it your direction soon.
+
+if anything feels off, [reach out](mailto:jeremy77roberts@gmail.com).
+
+[← back](/)
