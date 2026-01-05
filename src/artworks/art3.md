@@ -1,5 +1,5 @@
 ---
-sortOrder: 29
+sortOrder: 35
 title: "Untitled 3"
 image: "/images/art3.jpg"
 tags: artworks

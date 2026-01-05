@@ -1,5 +1,5 @@
 ---
-sortOrder: 19
+sortOrder: 45
 title: "Art 42"
 image: /images/art42.jpg
 layout: artwork.njk

@@ -1,5 +1,5 @@
 ---
-sortOrder: 43
+sortOrder: 21
 title: "Untitled 6"
 image: "/images/art6.jpg"
 tags: artworks
