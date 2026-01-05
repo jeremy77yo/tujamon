@@ -1,0 +1,29 @@
+---
+layout: page.njk
+pageClass: artwork-page
+---
+
+{% set artCode = "tj-" + page.fileSlug %}
+
+<h1 class="artwork-title">{{ title or page.fileSlug }}</h1>
+
+<figure class="artwork-frame">
+  <a class="artwork-zoom"
+     href="{{ image }}"
+     target="_blank"
+     rel="noreferrer"
+     aria-label="Open full size image">
+    <img
+      class="artwork-img"
+      src="{{ image }}"
+      alt="{{ title or page.fileSlug }}"
+      loading="eager"
+    />
+  </a>
+</figure>
+
+<div class="buy">
+  <a class="buy-btn" href="/buy/?art={{ artCode }}">
+    Buy 8×10 print
+  </a>
+</div>

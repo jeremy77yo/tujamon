@@ -1,0 +1,25 @@
+---
+permalink: /buy/
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const art = params.get("art");
+      if (!art) {
+        document.body.innerHTML = "<p>Missing artwork code.</p>";
+      } else {
+        window.location.href = `/.netlify/functions/create-checkout?art=${encodeURIComponent(art)}`;
+      }
+    </script>
+  </body>
+</html>

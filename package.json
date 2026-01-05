@@ -1,0 +1,25 @@
+{
+  "name": "tujamon",
+  "version": "1.0.0",
+  "description": "11ty art gallery",
+  "private": true,
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "clean": "rimraf _site",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremy77yo/tujamon.git"
+  },
+  "author": "Jeremy Roberts",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "stripe": "^20.1.0"
+  }
+}
