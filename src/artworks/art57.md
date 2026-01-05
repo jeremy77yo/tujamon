@@ -1,6 +1,6 @@
 ---
 sortOrder: 1
-title: "Art 57"
+title: "mist"
 image: /images/art57.jpg
 layout: artwork.njk
 artCode: tj-art57

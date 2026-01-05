@@ -1,6 +1,6 @@
 ---
 sortOrder: 18
-title: "Art 40"
+title: "moss"
 image: /images/art40.jpg
 layout: artwork.njk
 artCode: tj-art40

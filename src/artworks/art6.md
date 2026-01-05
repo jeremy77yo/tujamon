@@ -1,6 +1,6 @@
 ---
 sortOrder: 21
-title: "Untitled 6"
+title: "dusk"
 image: "/images/art6.jpg"
 tags: artworks
 layout: artwork.njk

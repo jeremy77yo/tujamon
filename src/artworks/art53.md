@@ -1,6 +1,6 @@
 ---
 sortOrder: 16
-title: "Art 53"
+title: "frost"
 image: /images/art53.jpg
 layout: artwork.njk
 artCode: tj-art53

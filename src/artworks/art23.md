@@ -1,6 +1,6 @@
 ---
 sortOrder: 4
-title: "Art 23"
+title: "trace"
 image: /images/art23.jpg
 layout: artwork.njk
 artCode: tj-art23

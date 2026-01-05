@@ -1,6 +1,6 @@
 ---
 sortOrder: 8
-title: "Untitled 9"
+title: "mauve"
 image: "/images/art9.jpg"
 tags: artworks
 layout: artwork.njk

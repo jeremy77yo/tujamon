@@ -1,6 +1,6 @@
 ---
 sortOrder: 49
-title: "Art 18"
+title: "kindling"
 image: /images/art18.jpg
 layout: artwork.njk
 artCode: tj-art18

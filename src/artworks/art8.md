@@ -1,6 +1,6 @@
 ---
 sortOrder: 39
-title: "Untitled 8"
+title: "amethyst"
 image: "/images/art8.jpg"
 tags: artworks
 layout: artwork.njk

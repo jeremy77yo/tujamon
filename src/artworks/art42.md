@@ -1,6 +1,6 @@
 ---
 sortOrder: 45
-title: "Art 42"
+title: "lichen"
 image: /images/art42.jpg
 layout: artwork.njk
 artCode: tj-art42

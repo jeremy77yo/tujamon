@@ -1,6 +1,6 @@
 ---
 sortOrder: 50
-title: "Art 51"
+title: "willow"
 image: /images/art51.jpg
 layout: artwork.njk
 artCode: tj-art51

@@ -1,6 +1,6 @@
 ---
 sortOrder: 44
-title: "Untitled 7"
+title: "wisteria"
 image: "/images/art7.jpg"
 tags: artworks
 layout: artwork.njk

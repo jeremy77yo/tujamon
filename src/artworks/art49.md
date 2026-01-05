@@ -1,6 +1,6 @@
 ---
 sortOrder: 26
-title: "Art 49"
+title: "celadon"
 image: /images/art49.jpg
 layout: artwork.njk
 artCode: tj-art49

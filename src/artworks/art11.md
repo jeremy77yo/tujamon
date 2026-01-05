@@ -1,6 +1,6 @@
 ---
 sortOrder: 58
-title: "Art 11"
+title: "solace"
 image: /images/art11.jpg
 layout: artwork.njk
 artCode: tj-art11

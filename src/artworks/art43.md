@@ -1,6 +1,6 @@
 ---
 sortOrder: 3
-title: "Art 43"
+title: "sage"
 image: /images/art43.jpg
 layout: artwork.njk
 artCode: tj-art43

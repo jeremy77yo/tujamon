@@ -1,6 +1,6 @@
 ---
 sortOrder: 56
-title: "Art 30"
+title: "russet"
 image: /images/art30.jpg
 layout: artwork.njk
 artCode: tj-art30

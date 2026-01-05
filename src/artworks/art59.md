@@ -1,6 +1,6 @@
 ---
 sortOrder: 19
-title: "Art 59"
+title: "slate"
 image: /images/art59.jpg
 layout: artwork.njk
 artCode: tj-art59

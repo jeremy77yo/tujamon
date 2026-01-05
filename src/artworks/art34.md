@@ -1,6 +1,6 @@
 ---
 sortOrder: 38
-title: "Art 34"
+title: "drift"
 image: /images/art34.jpg
 layout: artwork.njk
 artCode: tj-art34

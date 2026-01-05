@@ -1,6 +1,6 @@
 ---
 sortOrder: 23
-title: "Art 12"
+title: "liminal"
 image: /images/art12.jpg
 layout: artwork.njk
 artCode: tj-art12
