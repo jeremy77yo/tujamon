@@ -1,7 +1,8 @@
 ---
-sortOrder: 34
-title: "marrow"
-image: /images/art38.jpg
+sortOrder: 38
+title: "Art 38"
+image: "/images/art38.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art38
+permalink: "/artworks/art38/"
 ---

@@ -1,7 +1,8 @@
 ---
-sortOrder: 53
-title: "terra"
-image: /images/art17.jpg
+sortOrder: 17
+title: "Art 17"
+image: "/images/art17.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art17
+permalink: "/artworks/art17/"
 ---

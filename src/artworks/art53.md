@@ -1,7 +1,8 @@
 ---
-sortOrder: 16
-title: "frost"
-image: /images/art53.jpg
+sortOrder: 53
+title: "Art 53"
+image: "/images/art53.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art53
+permalink: "/artworks/art53/"
 ---

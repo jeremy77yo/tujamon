@@ -1,7 +1,8 @@
 ---
-sortOrder: 48
-title: "fallow"
-image: /images/art46.jpg
+sortOrder: 46
+title: "Art 46"
+image: "/images/art46.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art46
+permalink: "/artworks/art46/"
 ---

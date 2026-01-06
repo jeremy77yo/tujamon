@@ -1,7 +1,8 @@
 ---
-sortOrder: 56
-title: "russet"
-image: /images/art30.jpg
+sortOrder: 30
+title: "Art 30"
+image: "/images/art30.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art30
+permalink: "/artworks/art30/"
 ---

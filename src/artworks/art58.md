@@ -1,7 +1,8 @@
 ---
-sortOrder: 13
-title: "haze"
-image: /images/art58.jpg
+sortOrder: 58
+title: "Art 58"
+image: "/images/art58.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art58
+permalink: "/artworks/art58/"
 ---

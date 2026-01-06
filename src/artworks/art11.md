@@ -1,7 +1,8 @@
 ---
-sortOrder: 58
-title: "solace"
-image: /images/art11.jpg
+sortOrder: 11
+title: "Art 11"
+image: "/images/art11.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art11
+permalink: "/artworks/art11/"
 ---

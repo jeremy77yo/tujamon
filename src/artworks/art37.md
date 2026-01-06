@@ -1,7 +1,8 @@
 ---
-sortOrder: 12
-title: "copper"
-image: /images/art37.jpg
+sortOrder: 37
+title: "Art 37"
+image: "/images/art37.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art37
+permalink: "/artworks/art37/"
 ---

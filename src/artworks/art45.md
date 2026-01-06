@@ -1,7 +1,8 @@
 ---
-sortOrder: 46
-title: "sprout"
-image: /images/art45.jpg
+sortOrder: 45
+title: "Art 45"
+image: "/images/art45.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art45
+permalink: "/artworks/art45/"
 ---

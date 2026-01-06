@@ -1,7 +1,8 @@
 ---
-sortOrder: 47
-title: "hollow"
-image: /images/art19.jpg
+sortOrder: 19
+title: "Art 19"
+image: "/images/art19.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art19
+permalink: "/artworks/art19/"
 ---

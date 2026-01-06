@@ -1,7 +1,8 @@
 ---
-sortOrder: 59
-title: "fever"
-image: /images/art39.jpg
+sortOrder: 39
+title: "Art 39"
+image: "/images/art39.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art39
+permalink: "/artworks/art39/"
 ---

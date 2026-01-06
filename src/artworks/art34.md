@@ -1,7 +1,8 @@
 ---
-sortOrder: 38
-title: "drift"
-image: /images/art34.jpg
+sortOrder: 34
+title: "Art 34"
+image: "/images/art34.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art34
+permalink: "/artworks/art34/"
 ---

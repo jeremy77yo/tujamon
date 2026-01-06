@@ -1,7 +1,8 @@
 ---
-sortOrder: 18
-title: "moss"
-image: /images/art40.jpg
+sortOrder: 40
+title: "Art 40"
+image: "/images/art40.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art40
+permalink: "/artworks/art40/"
 ---

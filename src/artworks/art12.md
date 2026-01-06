@@ -1,7 +1,8 @@
 ---
-sortOrder: 23
-title: "liminal"
-image: /images/art12.jpg
+sortOrder: 12
+title: "Art 12"
+image: "/images/art12.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art12
+permalink: "/artworks/art12/"
 ---

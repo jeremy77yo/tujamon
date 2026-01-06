@@ -1,7 +1,8 @@
 ---
-sortOrder: 17
-title: "stillness"
-image: /images/art20.jpg
+sortOrder: 20
+title: "Art 20"
+image: "/images/art20.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art20
+permalink: "/artworks/art20/"
 ---

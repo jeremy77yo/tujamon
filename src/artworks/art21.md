@@ -1,7 +1,8 @@
 ---
-sortOrder: 62
-title: "remnant"
-image: /images/art21.jpg
+sortOrder: 21
+title: "Art 21"
+image: "/images/art21.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art21
+permalink: "/artworks/art21/"
 ---

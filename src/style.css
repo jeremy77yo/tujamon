@@ -25,10 +25,12 @@ body{
 
 .site-title{
   margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  font-size: 34px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 22px;
   line-height: 1.1;
+  color: #444;
 }
 
 .site-tagline{
@@ -71,14 +73,121 @@ body{
   padding: 18px 24px 44px;
 }
 
-/* Gallery grid */
+/* Vision Board Layout */
+.board{
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  gap: 0;
+  position: relative;
+}
+
+/* Center rule - faint magazine guideline */
+.board-rule{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,0.06) 5%,
+    rgba(0,0,0,0.06) 95%,
+    transparent 100%
+  );
+}
+
+/* Columns */
+.board-col{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.board-col--left{
+  padding-right: 20px;
+  align-items: flex-end;
+}
+
+.board-col--right{
+  padding-left: 20px;
+  align-items: flex-start;
+  padding-top: 60px; /* slight offset for organic feel */
+}
+
+/* Artwork tiles - soft paper shadow, sized for collage balance */
+.work{
+  display: block;
+  max-width: 72%;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle vertical misalignment for handmade collage feel */
+.work:nth-child(3n)   { margin-top: 8px; }
+.work:nth-child(5n)   { margin-top: -6px; }
+.work:nth-child(7n)   { margin-top: 12px; }
+.work:nth-child(11n)  { margin-top: -4px; }
+
+.work:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.06),
+    0 8px 24px rgba(0,0,0,0.06);
+}
+
+.work img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Poetry verses - hierarchy through scale and space */
+.verse{
+  padding: 32px 8px;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 2;
+  color: #555;
+  letter-spacing: 0.3px;
+  text-align: right;
+  max-width: 200px;
+}
+
+.verse p{
+  margin: 0;
+}
+
+.verse--right{
+  text-align: left;
+}
+
+/* Footer closer */
+.closer{
+  text-align: center;
+  padding: 40px 20px 60px;
+  color: #999;
+  font-size: 20px;
+}
+
+.closer p{
+  margin: 0;
+}
+
+/* Legacy gallery grid (keep for compatibility) */
 .gallery{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
 }
 
-/* Cards */
+/* Legacy cards */
 .card{
   display: block;
   border-radius: var(--radius);
@@ -144,15 +253,87 @@ body{
   letter-spacing: 0.2px;
 }
 
-/* “weird spacing” between paragraphs */
+/* "weird spacing" between paragraphs */
 .bio-page p + p{
   margin-top: 42px;
 }
 
+/* horizontal rules for shop page */
+.bio-page hr{
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin: 48px auto;
+  max-width: 100px;
+}
+
+/* links in bio/shop pages */
+.bio-page a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.8;
+  transition: opacity 0.12s ease;
+}
+
+.bio-page a:hover{
+  opacity: 1;
+}
+
 /* Responsive tweaks */
+@media (max-width: 700px){
+  .board{
+    flex-direction: column;
+    padding: 0 16px 60px;
+    gap: 16px;
+  }
+
+  .board-rule{
+    display: none;
+  }
+
+  .board-col{
+    gap: 16px;
+  }
+
+  .board-col--left,
+  .board-col--right{
+    padding: 0;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .work{
+    max-width: 100%;
+  }
+
+  .verse{
+    text-align: center;
+    max-width: 280px;
+    padding: 24px 0;
+  }
+
+  .verse--right{
+    text-align: center;
+  }
+}
+
 @media (max-width: 520px){
   .site-title{ font-size: 30px; }
   .page{ padding-top: 14px; }
+
+  .board{
+    padding: 0 12px 48px;
+    gap: 14px;
+  }
+
+  .board-col{
+    gap: 14px;
+  }
+
+  .verse{
+    font-size: 14px;
+    padding: 20px 0;
+  }
 }
 /* Artwork page uniform framing */
 .artwork-page{
@@ -250,5 +431,134 @@ body{
 
   .artwork-img{
     max-height: 60vh;
+  }
+}
+
+/* Shop page */
+.shop-page{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 72px 24px 64px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+}
+
+.shop-header{
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.shop-title{
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 24px;
+  letter-spacing: 0.5px;
+}
+
+.shop-info{
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.shop-detail{
+  margin: 0;
+  opacity: 0.85;
+}
+
+.shop-note{
+  margin: 16px 0 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.shop-note a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.shop-note a:hover{
+  opacity: 1;
+}
+
+/* Shop thumbnail grid */
+.shop-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.shop-thumb{
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shop-thumb:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.shop-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Shop divider and sections */
+.shop-divider{
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin: 56px auto;
+  max-width: 100px;
+}
+
+.shop-section{
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+.shop-subtitle{
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+}
+
+.shop-section p{
+  margin: 0 0 16px;
+  opacity: 0.85;
+}
+
+.shop-section a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.8;
+  transition: opacity 0.12s ease;
+}
+
+.shop-section a:hover{
+  opacity: 1;
+}
+
+/* Shop responsive */
+@media (max-width: 640px){
+  .shop-page{
+    padding: 64px 16px 54px;
+  }
+
+  .shop-grid{
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
   }
 }

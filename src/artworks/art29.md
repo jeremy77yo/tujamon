@@ -1,7 +1,8 @@
 ---
-sortOrder: 31
-title: "cobalt"
-image: /images/art29.jpg
+sortOrder: 29
+title: "Art 29"
+image: "/images/art29.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art29
+permalink: "/artworks/art29/"
 ---

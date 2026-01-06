@@ -1,7 +1,8 @@
 ---
-sortOrder: 41
-title: "cyan"
-image: /images/art52.jpg
+sortOrder: 52
+title: "Art 52"
+image: "/images/art52.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art52
+permalink: "/artworks/art52/"
 ---

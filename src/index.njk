@@ -3,44 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Tu Jamon</title>
+    <title>tu jamon</title>
 
-    <!-- Font: Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css" />
   </head>
 
   <body>
     <header class="site-header">
-      <h1 class="site-title">Tu Jamon</h1>
-
-    
+      <h1 class="site-title">tu jamon</h1>
 
       <nav class="site-nav" aria-label="Site">
         <a href="/bio/">bio</a>
+        <a href="/shop/">shop</a>
         <a href="/contact/">email</a>
         <a href="https://instagram.com/tu.jamon" target="_blank" rel="noreferrer">instagram</a>
-        <a href="https://tiktok.com/@twin.g3" target="_blank" rel="noreferrer">tikTok</a>
         <a href="https://open.spotify.com/artist/7jsdfw3TkurRHbMP5Xmeq8" target="_blank" rel="noreferrer">spotify</a>
         <a href="https://music.apple.com/us/artist/twin-g/1861072959" target="_blank" rel="noreferrer">apple</a>
       </nav>
     </header>
 
-    <main class="page">
-      <div class="gallery">
+    <main class="board">
+      <div class="board-col board-col--left">
         {% for art in collections.artworks %}
-          <a class="card" href="{{ art.url }}">
-            <img
-              src="{{ art.data.image }}"
-              alt="{{ art.data.title or art.fileSlug }}"
-              loading="lazy"
-            />
-          </a>
+          {% if loop.index % 2 == 1 %}
+            {# Poetry interludes - staggered so only one appears at a time #}
+            {% if loop.index == 11 %}
+              <div class="verse">
+                <p>here's a shape<br/>feels like something<br/>words recede<br/>tongue torn<br/>eyes cave</p>
+              </div>
+            {% endif %}
+            {% if loop.index == 43 %}
+              <div class="verse">
+                <p>mineral light<br/>soft stone<br/>eroding<br/>sedimented greens<br/>gently, you breathe<br/>against skin</p>
+              </div>
+            {% endif %}
+            {% if loop.index == 73 %}
+              <div class="verse">
+                <p>tending to color<br/>images i can bend<br/>memories to play with<br/>some i invent<br/>i construe, forget<br/>then believe</p>
+              </div>
+            {% endif %}
+
+            <a class="work" href="{{ art.url }}">
+              <img src="{{ art.data.image }}" alt="{{ art.data.title }}" loading="lazy" />
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="board-rule"></div>
+
+      <div class="board-col board-col--right">
+        {% for art in collections.artworks %}
+          {% if loop.index % 2 == 0 %}
+            {# Poetry interludes - staggered so only one appears at a time #}
+            {% if loop.index == 26 %}
+              <div class="verse verse--right">
+                <p>drifting, swaying<br/>a dream with some use<br/>maybe you'd say<br/>i write and make<br/>just to form a shape<br/>you might lean toward</p>
+              </div>
+            {% endif %}
+            {% if loop.index == 58 %}
+              <div class="verse verse--right">
+                <p>finding a little balance<br/>in between<br/>the physical and the digital<br/>let's see where it goes</p>
+              </div>
+            {% endif %}
+            {% if loop.index == 88 %}
+              <div class="verse verse--right">
+                <p>textured greens<br/>all overgrown<br/>sleep of green<br/>slow corrosion<br/>one of you</p>
+              </div>
+            {% endif %}
+
+            <a class="work" href="{{ art.url }}">
+              <img src="{{ art.data.image }}" alt="{{ art.data.title }}" loading="lazy" />
+            </a>
+          {% endif %}
         {% endfor %}
       </div>
     </main>
+
+    <footer class="closer">
+      <p>·</p>
+    </footer>
   </body>
 </html>

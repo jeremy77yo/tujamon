@@ -1,7 +1,8 @@
 ---
-sortOrder: 2
-title: "tender"
-image: /images/art44.jpg
+sortOrder: 44
+title: "Art 44"
+image: "/images/art44.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art44
+permalink: "/artworks/art44/"
 ---

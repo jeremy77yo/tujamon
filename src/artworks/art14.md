@@ -1,7 +1,8 @@
 ---
-sortOrder: 5
-title: "static"
-image: /images/art14.jpg
+sortOrder: 14
+title: "Art 14"
+image: "/images/art14.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art14
+permalink: "/artworks/art14/"
 ---

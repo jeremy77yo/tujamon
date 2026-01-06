@@ -1,7 +1,8 @@
 ---
-sortOrder: 61
-title: "sienna"
-image: /images/art25.jpg
+sortOrder: 25
+title: "Art 25"
+image: "/images/art25.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art25
+permalink: "/artworks/art25/"
 ---

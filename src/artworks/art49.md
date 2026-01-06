@@ -1,7 +1,8 @@
 ---
-sortOrder: 26
-title: "celadon"
-image: /images/art49.jpg
+sortOrder: 49
+title: "Art 49"
+image: "/images/art49.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art49
+permalink: "/artworks/art49/"
 ---

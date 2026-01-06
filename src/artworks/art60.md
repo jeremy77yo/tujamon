@@ -1,7 +1,8 @@
 ---
-sortOrder: 57
-title: "iridescent"
-image: /images/art60.jpg
+sortOrder: 60
+title: "Art 60"
+image: "/images/art60.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art60
+permalink: "/artworks/art60/"
 ---

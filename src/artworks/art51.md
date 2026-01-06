@@ -1,7 +1,8 @@
 ---
-sortOrder: 50
-title: "willow"
-image: /images/art51.jpg
+sortOrder: 51
+title: "Art 51"
+image: "/images/art51.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art51
+permalink: "/artworks/art51/"
 ---

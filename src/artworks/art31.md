@@ -1,7 +1,8 @@
 ---
-sortOrder: 52
-title: "amber"
-image: /images/art31.jpg
+sortOrder: 31
+title: "Art 31"
+image: "/images/art31.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art31
+permalink: "/artworks/art31/"
 ---

@@ -1,6 +1,6 @@
 ---
-sortOrder: 7
-title: "quiet"
+sortOrder: 1
+title: "Art 1"
 image: "/images/art1.jpg"
 tags: artworks
 layout: artwork.njk

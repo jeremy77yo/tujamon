@@ -1,7 +1,7 @@
 ---
-sortOrder: 39
-title: "amethyst"
-image: "/images/art8.jpg"
+sortOrder: 8
+title: "Art 8"
+image: "/images/art8.JPG"
 tags: artworks
 layout: artwork.njk
 permalink: "/artworks/art8/"

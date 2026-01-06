@@ -1,7 +1,8 @@
 ---
-sortOrder: 28
-title: "saffron"
-image: /images/art36.jpg
+sortOrder: 36
+title: "Art 36"
+image: "/images/art36.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art36
+permalink: "/artworks/art36/"
 ---

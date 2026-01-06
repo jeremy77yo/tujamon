@@ -1,7 +1,8 @@
 ---
-sortOrder: 3
-title: "sage"
-image: /images/art43.jpg
+sortOrder: 43
+title: "Art 43"
+image: "/images/art43.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art43
+permalink: "/artworks/art43/"
 ---

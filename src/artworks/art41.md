@@ -1,7 +1,8 @@
 ---
-sortOrder: 40
-title: "verdant"
-image: /images/art41.jpg
+sortOrder: 41
+title: "Art 41"
+image: "/images/art41.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art41
+permalink: "/artworks/art41/"
 ---

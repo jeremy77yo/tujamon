@@ -1,7 +1,8 @@
 ---
-sortOrder: 49
-title: "kindling"
-image: /images/art18.jpg
+sortOrder: 18
+title: "Art 18"
+image: "/images/art18.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art18
+permalink: "/artworks/art18/"
 ---

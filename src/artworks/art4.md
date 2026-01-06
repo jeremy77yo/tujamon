@@ -1,6 +1,6 @@
 ---
-sortOrder: 32
-title: "blush"
+sortOrder: 4
+title: "Art 4"
 image: "/images/art4.jpg"
 tags: artworks
 layout: artwork.njk

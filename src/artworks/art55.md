@@ -1,7 +1,8 @@
 ---
-sortOrder: 10
-title: "vapor"
-image: /images/art55.jpg
+sortOrder: 55
+title: "Art 55"
+image: "/images/art55.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art55
+permalink: "/artworks/art55/"
 ---

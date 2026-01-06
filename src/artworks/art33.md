@@ -1,7 +1,8 @@
 ---
-sortOrder: 24
-title: "cinder"
-image: /images/art33.jpg
+sortOrder: 33
+title: "Art 33"
+image: "/images/art33.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art33
+permalink: "/artworks/art33/"
 ---

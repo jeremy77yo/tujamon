@@ -1,7 +1,8 @@
 ---
-sortOrder: 14
-title: "echo"
-image: /images/art22.jpg
+sortOrder: 22
+title: "Art 22"
+image: "/images/art22.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art22
+permalink: "/artworks/art22/"
 ---

@@ -1,6 +1,6 @@
 ---
-sortOrder: 29
-title: "verdigris"
+sortOrder: 5
+title: "Art 5"
 image: "/images/art5.jpg"
 tags: artworks
 layout: artwork.njk

@@ -1,7 +1,8 @@
 ---
-sortOrder: 20
-title: "umbra"
-image: /images/art27.jpg
+sortOrder: 27
+title: "Art 27"
+image: "/images/art27.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art27
+permalink: "/artworks/art27/"
 ---

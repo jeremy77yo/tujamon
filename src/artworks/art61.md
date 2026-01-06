@@ -1,7 +1,8 @@
 ---
-sortOrder: 63
-title: "violet"
-image: /images/art61.jpg
+sortOrder: 61
+title: "Art 61"
+image: "/images/art61.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art61
+permalink: "/artworks/art61/"
 ---

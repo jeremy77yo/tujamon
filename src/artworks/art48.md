@@ -1,7 +1,8 @@
 ---
-sortOrder: 25
-title: "aether"
-image: /images/art48.jpg
+sortOrder: 48
+title: "Art 48"
+image: "/images/art48.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art48
+permalink: "/artworks/art48/"
 ---

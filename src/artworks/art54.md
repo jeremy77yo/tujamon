@@ -1,7 +1,8 @@
 ---
-sortOrder: 6
-title: "glacial"
-image: /images/art54.jpg
+sortOrder: 54
+title: "Art 54"
+image: "/images/art54.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art54
+permalink: "/artworks/art54/"
 ---

@@ -1,0 +1,38 @@
+---
+title: Shop
+permalink: /shop/
+layout: page.njk
+pageClass: shop-page
+---
+
+<div class="shop-header">
+  <h1 class="shop-title">prints</h1>
+
+  <div class="shop-info">
+    <p class="shop-detail">Giclee print on Hahnemuhle German Etching paper</p>
+    <p class="shop-detail">$40 — includes shipping (US only)</p>
+    <p class="shop-note">international shipping varies — <a href="/contact/">email me</a></p>
+    <p class="shop-note">larger or smaller sizes available upon request</p>
+  </div>
+</div>
+
+<div class="shop-grid">
+  {%- for artwork in collections.artworks -%}
+    <a class="shop-thumb" href="{{ artwork.url }}">
+      <img
+        src="{{ artwork.data.image }}"
+        alt="{{ artwork.data.title or artwork.fileSlug }}"
+        loading="lazy"
+      />
+    </a>
+  {%- endfor -%}
+</div>
+
+<hr class="shop-divider">
+
+<div class="shop-section">
+  <h2 class="shop-subtitle">commissions</h2>
+  <p>custom collages, physical or digital. mixed media work, tangible pieces, something made just for you.</p>
+  <p>pricing varies by size and complexity — reach out and we'll figure it out together.</p>
+  <p><a href="/contact/">email to inquire</a></p>
+</div>

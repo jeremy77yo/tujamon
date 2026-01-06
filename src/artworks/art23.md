@@ -1,7 +1,8 @@
 ---
-sortOrder: 4
-title: "trace"
-image: /images/art23.jpg
+sortOrder: 23
+title: "Art 23"
+image: "/images/art23.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art23
+permalink: "/artworks/art23/"
 ---

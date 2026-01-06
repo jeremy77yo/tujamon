@@ -1,7 +1,7 @@
 ---
-sortOrder: 35
-title: "particle"
-image: "/images/art3.jpg"
+sortOrder: 3
+title: "Art 3"
+image: "/images/art3.JPG"
 tags: artworks
 layout: artwork.njk
 permalink: "/artworks/art3/"

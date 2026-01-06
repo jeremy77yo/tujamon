@@ -1,7 +1,8 @@
 ---
-sortOrder: 42
-title: "patina"
-image: /images/art50.jpg
+sortOrder: 50
+title: "Art 50"
+image: "/images/art50.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art50
+permalink: "/artworks/art50/"
 ---

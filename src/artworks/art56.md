@@ -1,7 +1,8 @@
 ---
-sortOrder: 11
-title: "obsidian"
-image: /images/art56.jpg
+sortOrder: 56
+title: "Art 56"
+image: "/images/art56.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art56
+permalink: "/artworks/art56/"
 ---

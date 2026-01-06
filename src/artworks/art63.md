@@ -1,7 +1,8 @@
 ---
-sortOrder: 54
-title: "thistle"
-image: /images/art63.jpg
+sortOrder: 63
+title: "Art 63"
+image: "/images/art63.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art63
+permalink: "/artworks/art63/"
 ---

@@ -1,7 +1,8 @@
 ---
-sortOrder: 27
-title: "plum"
-image: /images/art62.jpg
+sortOrder: 62
+title: "Art 62"
+image: "/images/art62.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art62
+permalink: "/artworks/art62/"
 ---

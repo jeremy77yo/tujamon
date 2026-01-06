@@ -1,7 +1,8 @@
 ---
-sortOrder: 9
-title: "vestige"
-image: /images/art24.jpg
+sortOrder: 24
+title: "Art 24"
+image: "/images/art24.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art24
+permalink: "/artworks/art24/"
 ---

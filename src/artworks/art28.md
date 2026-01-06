@@ -1,7 +1,8 @@
 ---
-sortOrder: 51
-title: "hearth"
-image: /images/art28.jpg
+sortOrder: 28
+title: "Art 28"
+image: "/images/art28.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art28
+permalink: "/artworks/art28/"
 ---

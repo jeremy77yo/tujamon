@@ -1,7 +1,8 @@
 ---
-sortOrder: 55
-title: "ochre"
-image: /images/art13.jpg
+sortOrder: 13
+title: "Art 13"
+image: "/images/art13.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art13
+permalink: "/artworks/art13/"
 ---

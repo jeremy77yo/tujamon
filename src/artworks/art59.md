@@ -1,7 +1,8 @@
 ---
-sortOrder: 19
-title: "slate"
-image: /images/art59.jpg
+sortOrder: 59
+title: "Art 59"
+image: "/images/art59.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art59
+permalink: "/artworks/art59/"
 ---

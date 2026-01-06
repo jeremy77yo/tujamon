@@ -1,7 +1,8 @@
 ---
-sortOrder: 1
-title: "mist"
-image: /images/art57.jpg
+sortOrder: 57
+title: "Art 57"
+image: "/images/art57.jpg"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art57
+permalink: "/artworks/art57/"
 ---

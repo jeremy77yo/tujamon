@@ -1,7 +1,8 @@
 ---
-sortOrder: 36
-title: "fragment"
-image: /images/art26.jpg
+sortOrder: 26
+title: "Art 26"
+image: "/images/art26.JPG"
+tags: artworks
 layout: artwork.njk
-artCode: tj-art26
+permalink: "/artworks/art26/"
 ---
