@@ -3,9 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{{ title or "Tu Jamon" }}</title>
+    <title>{{ title or "Tu Jamon" }} — tu jamon</title>
+    <meta name="description" content="Tu Jamon — collage and sound. Visual work drawn from browsed artifacts, shredded photographs, and scans layered until the boundary between physical and digital dissolves." />
 
-    <!-- cooler font -->
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title or 'Tu Jamon' }}" />
+    <meta property="og:description" content="Collage and sound. Visual work drawn from browsed artifacts, shredded photographs, and scans layered until the boundary between physical and digital dissolves." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
