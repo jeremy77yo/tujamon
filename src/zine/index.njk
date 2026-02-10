@@ -27,17 +27,27 @@
     <a class="back-link" href="/" aria-label="Back to gallery">&larr;</a>
 
     <div class="zine" id="zine">
-      {% for i in range(1, 21) %}
-        {% set num = i | string %}
-        {% if i < 10 %}{% set num = "0" + num %}{% endif %}
-        <img
-          class="zine-page{% if i == 1 %} zine-page--active{% endif %}"
-          src="/images/zine/zine-{{ num }}.webp"
-          alt="Iridesce zine page {{ i }}"
-          {% if i <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %}
-          draggable="false"
-        />
+      {# Spread 0: Cover alone #}
+      <div class="zine-spread zine-spread--active" data-spread="0">
+        <img class="zine-page" src="/images/zine/zine-01.webp" alt="Iridesce zine cover" loading="eager" draggable="false" />
+      </div>
+
+      {# Spreads 1-9: pairs of pages (2-3, 4-5, 6-7, ... 18-19) #}
+      {% for s in range(1, 10) %}
+        {% set left = s * 2 %}
+        {% set right = left + 1 %}
+        {% set lnum = left | string %}{% if left < 10 %}{% set lnum = "0" + lnum %}{% endif %}
+        {% set rnum = right | string %}{% if right < 10 %}{% set rnum = "0" + rnum %}{% endif %}
+        <div class="zine-spread" data-spread="{{ s }}">
+          <img class="zine-page" src="/images/zine/zine-{{ lnum }}.webp" alt="Iridesce zine page {{ left }}" {% if s <= 1 %}loading="eager"{% else %}loading="lazy"{% endif %} draggable="false" />
+          <img class="zine-page" src="/images/zine/zine-{{ rnum }}.webp" alt="Iridesce zine page {{ right }}" {% if s <= 1 %}loading="eager"{% else %}loading="lazy"{% endif %} draggable="false" />
+        </div>
       {% endfor %}
+
+      {# Spread 10: Last page alone #}
+      <div class="zine-spread" data-spread="10">
+        <img class="zine-page" src="/images/zine/zine-20.webp" alt="Iridesce zine last page" loading="lazy" draggable="false" />
+      </div>
 
       <button class="zine-nav zine-nav--prev" id="zinePrev" aria-label="Previous page" style="display:none">
         <span class="zine-nav-hint">&lsaquo;</span>
@@ -46,9 +56,9 @@
         <span class="zine-nav-hint">&rsaquo;</span>
       </button>
 
-      <div class="zine-counter" id="zineCounter">1 / 20</div>
+      <div class="zine-counter" id="zineCounter">1 / 11</div>
 
-      <div class="zine-info" id="zineInfo">
+      <div class="zine-info" id="zineInfo" style="display:none">
         <p class="zine-info-note">scan the barcodes in the zine for links to songs from the EP</p>
         <a class="zine-info-link" href="https://open.spotify.com/album/2w9LWbJeCj0t52gnDHpvm3?si=ZOSIt3tjQyyY72TByVcrPA" target="_blank" rel="noreferrer">listen to the full EP on spotify &nearr;</a>
         <a class="zine-info-link" href="/contact/">request a physical copy &rarr;</a>
@@ -59,8 +69,8 @@
 
     <script>
     (function() {
-      var pages = document.querySelectorAll('.zine-page');
-      var total = pages.length;
+      var spreads = document.querySelectorAll('.zine-spread');
+      var total = spreads.length;
       var current = 0;
       var locked = false;
 
@@ -70,8 +80,11 @@
       var info = document.getElementById('zineInfo');
 
       function preload(idx) {
-        if (idx >= 0 && idx < total && pages[idx].loading === 'lazy') {
-          pages[idx].loading = 'eager';
+        if (idx >= 0 && idx < total) {
+          var imgs = spreads[idx].querySelectorAll('img');
+          for (var i = 0; i < imgs.length; i++) {
+            if (imgs[i].loading === 'lazy') imgs[i].loading = 'eager';
+          }
         }
       }
 
@@ -79,30 +92,30 @@
         if (locked || to < 0 || to >= total || to === current) return;
         locked = true;
 
-        var oldPage = pages[current];
-        var newPage = pages[to];
+        var oldSpread = spreads[current];
+        var newSpread = spreads[to];
 
-        // Set up entry position for new page
-        newPage.style.transition = 'none';
-        newPage.style.transform = 'translateX(' + (direction > 0 ? '40px' : '-40px') + ')';
-        newPage.style.opacity = '0';
-        newPage.classList.add('zine-page--active');
+        // Set up entry position
+        newSpread.style.transition = 'none';
+        newSpread.style.transform = 'translateX(' + (direction > 0 ? '40px' : '-40px') + ')';
+        newSpread.style.opacity = '0';
+        newSpread.classList.add('zine-spread--active');
 
         // Force reflow
-        void newPage.offsetWidth;
+        void newSpread.offsetWidth;
 
         // Animate both
-        newPage.style.transition = '';
-        newPage.style.transform = '';
-        newPage.style.opacity = '';
+        newSpread.style.transition = '';
+        newSpread.style.transform = '';
+        newSpread.style.opacity = '';
 
-        oldPage.style.transform = 'translateX(' + (direction > 0 ? '-40px' : '40px') + ')';
-        oldPage.style.opacity = '0';
+        oldSpread.style.transform = 'translateX(' + (direction > 0 ? '-40px' : '40px') + ')';
+        oldSpread.style.opacity = '0';
 
         setTimeout(function() {
-          oldPage.classList.remove('zine-page--active');
-          oldPage.style.transform = '';
-          oldPage.style.opacity = '';
+          oldSpread.classList.remove('zine-spread--active');
+          oldSpread.style.transform = '';
+          oldSpread.style.opacity = '';
           locked = false;
         }, 350);
 
@@ -116,7 +129,7 @@
         nextBtn.style.display = current === total - 1 ? 'none' : '';
         info.style.display = current === total - 1 ? '' : 'none';
 
-        // Preload adjacent pages
+        // Preload adjacent spreads
         preload(current - 1);
         preload(current + 1);
       }
@@ -151,7 +164,6 @@
         var dx = e.changedTouches[0].clientX - touchStartX;
         var dy = e.changedTouches[0].clientY - touchStartY;
 
-        // Only trigger if horizontal swipe is dominant
         if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
           if (dx < 0) {
             go(current + 1, 1);
