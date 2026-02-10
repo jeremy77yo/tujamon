@@ -39,6 +39,12 @@
       </nav>
     </header>
 
+    <a class="zine-promo" href="/zine/">
+      <span class="zine-promo-label">new</span>
+      <span class="zine-promo-text">iridesce zine</span>
+      <span class="zine-promo-arrow">&rarr;</span>
+    </a>
+
     <main class="board">
       <div class="board-col board-col--left">
         {% for art in collections.artworks %}
@@ -78,12 +84,7 @@
                 <p>drifting, swaying<br/>a dream with some use<br/>maybe you'd say<br/>i write and make<br/>just to form a shape<br/>you might lean toward</p>
               </div>
             {% endif %}
-            {% if loop.index == 58 %}
-              <div class="verse verse--right">
-                <p>finding a little balance<br/>in between<br/>the physical and the digital<br/>let's see where it goes</p>
-              </div>
-            {% endif %}
-            {% if loop.index == 88 %}
+                        {% if loop.index == 88 %}
               <div class="verse verse--right">
                 <p>textured greens<br/>all overgrown<br/>sleep of green<br/>slow corrosion<br/>one of you</p>
               </div>
@@ -106,5 +107,19 @@
       </div>
       <p class="copyright">&copy; 2025 tu jamon</p>
     </footer>
+    {% include "player.njk" %}
+
+    <script>
+      document.querySelectorAll('.work').forEach(function(a) {
+        a.addEventListener('click', function() {
+          sessionStorage.setItem('scrollY', window.scrollY);
+        });
+      });
+      var saved = sessionStorage.getItem('scrollY');
+      if (saved !== null) {
+        window.scrollTo(0, parseInt(saved, 10));
+        sessionStorage.removeItem('scrollY');
+      }
+    </script>
   </body>
 </html>

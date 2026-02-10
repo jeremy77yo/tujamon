@@ -145,6 +145,7 @@ body{
   display: block;
   width: 100%;
   height: auto;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Poetry verses - hierarchy through scale and space */
@@ -401,6 +402,7 @@ body{
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Buy section */
@@ -579,5 +581,342 @@ body{
   .shop-grid{
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 10px;
+  }
+}
+
+/* ── Audio Player ── */
+.player{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  height: 38px;
+  background: rgba(250,250,250,0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  color: #555;
+  user-select: none;
+}
+
+.player-btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  color: #444;
+  font-size: 14px;
+  line-height: 1;
+  transition: color 0.12s ease;
+  flex-shrink: 0;
+}
+
+.player-btn:hover{
+  color: #111;
+}
+
+.player-track{
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.12s ease;
+}
+
+.player-track:hover{
+  opacity: 1;
+}
+
+.player-progress{
+  flex: 1;
+  height: 2px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 1px;
+  cursor: pointer;
+  position: relative;
+  min-width: 40px;
+}
+
+.player-progress-fill{
+  height: 100%;
+  background: #888;
+  border-radius: 1px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.player-time{
+  flex-shrink: 0;
+  font-size: 10px;
+  opacity: 0.5;
+  letter-spacing: 0.5px;
+  min-width: 32px;
+  text-align: right;
+}
+
+.player-skip{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #999;
+  font-size: 10px;
+  line-height: 1;
+  transition: color 0.12s ease;
+  flex-shrink: 0;
+}
+
+.player-skip:hover{
+  color: #111;
+}
+
+.player-spotify{
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: #999;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  opacity: 0.7;
+  transition: opacity 0.12s ease;
+}
+
+.player-spotify:hover{
+  opacity: 1;
+  color: #111;
+}
+
+@media (max-width: 520px){
+  .player{
+    gap: 8px;
+    padding: 0 10px;
+  }
+  .player-track{
+    max-width: 80px;
+    font-size: 10px;
+  }
+  .player-time{
+    display: none;
+  }
+}
+
+/* Add bottom padding to pages so player doesn't cover content */
+.board{ padding-bottom: 120px; }
+.page{ padding-bottom: 80px; }
+.artwork-page{ padding-bottom: 80px; }
+.shop-page{ padding-bottom: 80px; }
+.site-footer{ padding-bottom: 56px; }
+
+/* ── Zine Promo (homepage) ── */
+.zine-promo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #111;
+}
+
+.zine-promo-label{
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background: #111;
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.zine-promo-text{
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+}
+
+.zine-promo-arrow{
+  font-size: 16px;
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.zine-promo:hover .zine-promo-arrow{
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* ── Zine Viewer ── */
+.zine{
+  position: fixed;
+  inset: 0;
+  background: #fafafa;
+  display: grid;
+  place-items: center;
+  padding: 56px 24px 56px;
+  z-index: 10;
+}
+
+.zine-page{
+  position: absolute;
+  max-width: min(100% - 48px, 720px);
+  max-height: calc(100% - 112px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.06);
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.zine-page--active{
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.zine-nav{
+  position: absolute;
+  top: 56px;
+  bottom: 56px;
+  width: 40%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  padding: 0;
+}
+
+.zine-nav--prev{ left: 0; }
+.zine-nav--next{ right: 0; }
+
+.zine-nav-hint{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.zine-nav:hover .zine-nav-hint{
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.zine-counter{
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.zine-info{
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+  text-align: center;
+}
+
+.zine-info-note{
+  margin: 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #777;
+  letter-spacing: 0.2px;
+}
+
+.zine-info-link{
+  font-size: 13px;
+  color: #111;
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.zine-info-link:hover{
+  background: rgba(0,0,0,0.09);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px){
+  .zine{
+    padding: 48px 8px 56px;
+  }
+
+  .zine-page{
+    max-width: calc(100% - 16px);
+    max-height: calc(100% - 104px);
+  }
+
+  .zine-nav{
+    width: 25%;
+    top: 48px;
+    bottom: 56px;
+  }
+
+  .zine-nav-hint{
+    opacity: 0.85;
+  }
+
+  .zine-counter{
+    bottom: 42px;
+  }
+
+  .zine-info{
+    bottom: 44px;
+  }
+
+  .zine-info-note{
+    font-size: 13px;
+    max-width: 260px;
   }
 }

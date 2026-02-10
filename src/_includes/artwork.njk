@@ -4,8 +4,19 @@ pageClass: artwork-page
 ---
 
 {% set artCode = "tj-" + page.fileSlug %}
-
-<h1 class="artwork-title">{{ title or page.fileSlug }}</h1>
+{% set allArt = collections.artworks %}
+{% set currentIndex = -1 %}
+{% for art in allArt %}
+  {% if art.url == page.url %}
+    {% set currentIndex = loop.index0 %}
+  {% endif %}
+{% endfor %}
+{% if currentIndex > 0 %}
+  {% set prevUrl = allArt[currentIndex - 1].url %}
+{% endif %}
+{% if currentIndex < allArt.length - 1 %}
+  {% set nextUrl = allArt[currentIndex + 1].url %}
+{% endif %}
 
 <figure class="artwork-frame">
   <a class="artwork-zoom"
@@ -24,6 +35,24 @@ pageClass: artwork-page
 
 <div class="buy">
   <a class="buy-btn" href="/buy/?art={{ artCode }}">
-    buy print — $40
+    buy
   </a>
 </div>
+
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      window.location.href = '/';
+    }
+    {% if prevUrl %}
+    if (e.key === 'ArrowLeft') {
+      window.location.href = '{{ prevUrl }}';
+    }
+    {% endif %}
+    {% if nextUrl %}
+    if (e.key === 'ArrowRight') {
+      window.location.href = '{{ nextUrl }}';
+    }
+    {% endif %}
+  });
+</script>

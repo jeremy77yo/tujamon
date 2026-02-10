@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/favicon-32x32.png": "favicon-32x32.png" });
   eleventyConfig.addPassthroughCopy({ "src/apple-touch-icon.png": "apple-touch-icon.png" });
   eleventyConfig.addPassthroughCopy({ "src/og-image.jpg": "og-image.jpg" });
+  eleventyConfig.addPassthroughCopy({ "src/audio": "audio" });
 
   // ✅ Create an "artworks" collection from all markdown files in src/artworks
   eleventyConfig.addCollection("artworks", (collectionApi) => {

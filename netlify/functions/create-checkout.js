@@ -49,7 +49,7 @@ exports.handler = async (event) => {
 
       // This makes Stripe collect the shipping address
       shipping_address_collection: {
-        allowed_countries: ["US"], // add more if you want
+        allowed_countries: ["US", "CA", "GB", "DE", "FR", "AU", "NL", "BE", "IT", "ES", "JP", "MX", "SE", "DK", "NO", "FI", "AT", "CH", "IE", "NZ", "PT"],
       },
 
       // Optional but useful

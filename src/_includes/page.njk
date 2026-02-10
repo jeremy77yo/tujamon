@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{{ title or "Tu Jamon" }} — tu jamon</title>
+    <title>tu jamon</title>
     <meta name="description" content="Tu Jamon — collage and sound. Visual work drawn from browsed artifacts, shredded photographs, and scans layered until the boundary between physical and digital dissolves." />
 
     <!-- Favicon -->
@@ -30,5 +30,7 @@
     <main class="{{ pageClass or 'page' }}">
       {{ content | safe }}
     </main>
+
+    {% include "player.njk" %}
   </body>
 </html>

@@ -7,18 +7,111 @@ permalink: /buy/
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Redirecting…</title>
+    <title>confirm — tu jamon</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        background: #fafafa;
+        color: #111;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .confirm {
+        text-align: center;
+        padding: 40px 20px;
+        max-width: 420px;
+      }
+      .confirm-label {
+        font-size: 12px;
+        opacity: 0.5;
+        letter-spacing: 0.5px;
+        margin: 0 0 20px;
+      }
+      .confirm-img {
+        max-width: 280px;
+        max-height: 50vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      }
+      .confirm-title {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0 0 8px;
+        opacity: 0.8;
+      }
+      .confirm-price {
+        font-size: 13px;
+        opacity: 0.5;
+        margin: 0 0 28px;
+      }
+      .confirm-btn {
+        display: inline-block;
+        text-decoration: none;
+        background: #111;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 999px;
+        font-family: inherit;
+        font-size: 13px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.92;
+        transition: transform 0.12s ease, opacity 0.12s ease;
+      }
+      .confirm-btn:hover {
+        transform: translateY(-1px);
+        opacity: 1;
+      }
+      .confirm-back {
+        display: block;
+        margin-top: 16px;
+        font-size: 12px;
+        color: #999;
+        text-decoration: none;
+        transition: color 0.12s ease;
+      }
+      .confirm-back:hover {
+        color: #111;
+      }
+    </style>
   </head>
   <body>
-    <p>Redirecting…</p>
+    <div class="confirm" id="confirm">
+      <p class="confirm-label">you are purchasing</p>
+      <img class="confirm-img" id="confirmImg" src="" alt="" />
+      <p class="confirm-title" id="confirmTitle"></p>
+      <p class="confirm-price">$35 — giclee print on hahnemühle paper</p>
+      <button class="confirm-btn" id="confirmBtn">proceed to checkout</button>
+      <a class="confirm-back" id="confirmBack" href="/">← go back</a>
+    </div>
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-      const art = params.get("art");
+      var params = new URLSearchParams(window.location.search);
+      var art = params.get('art');
       if (!art) {
-        document.body.innerHTML = "<p>Missing artwork code.</p>";
+        document.getElementById('confirm').innerHTML = '<p>Missing artwork code.</p>';
       } else {
-        window.location.href = `/.netlify/functions/create-checkout?art=${encodeURIComponent(art)}`;
+        var slug = art.replace(/^tj-/, '');
+        document.getElementById('confirmImg').src = '/images/' + slug + '.webp';
+        document.getElementById('confirmImg').alt = slug;
+        document.getElementById('confirmTitle').textContent = slug.replace(/(\d+)/, ' $1');
+        document.getElementById('confirmBack').href = '/artworks/' + slug + '/';
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+          this.textContent = 'redirecting…';
+          this.style.opacity = '0.5';
+          window.location.href = '/.netlify/functions/create-checkout?art=' + encodeURIComponent(art);
+        });
       }
     </script>
   </body>

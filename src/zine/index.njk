@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>iridesce zine — tu jamon</title>
+    <meta name="description" content="Iridesce — a visual zine by tu jamon. 20 pages of collage, poetry, and texture." />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="iridesce zine — tu jamon" />
+    <meta property="og:description" content="Iridesce — a visual zine by tu jamon. 20 pages of collage, poetry, and texture." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <a class="back-link" href="/" aria-label="Back to gallery">&larr;</a>
+
+    <div class="zine" id="zine">
+      {% for i in range(1, 21) %}
+        {% set num = i | string %}
+        {% if i < 10 %}{% set num = "0" + num %}{% endif %}
+        <img
+          class="zine-page{% if i == 1 %} zine-page--active{% endif %}"
+          src="/images/zine/zine-{{ num }}.webp"
+          alt="Iridesce zine page {{ i }}"
+          {% if i <= 3 %}loading="eager"{% else %}loading="lazy"{% endif %}
+          draggable="false"
+        />
+      {% endfor %}
+
+      <button class="zine-nav zine-nav--prev" id="zinePrev" aria-label="Previous page" style="display:none">
+        <span class="zine-nav-hint">&lsaquo;</span>
+      </button>
+      <button class="zine-nav zine-nav--next" id="zineNext" aria-label="Next page">
+        <span class="zine-nav-hint">&rsaquo;</span>
+      </button>
+
+      <div class="zine-counter" id="zineCounter">1 / 20</div>
+
+      <div class="zine-info" id="zineInfo">
+        <p class="zine-info-note">scan the barcodes in the zine for links to songs from the EP</p>
+        <a class="zine-info-link" href="https://open.spotify.com/album/2w9LWbJeCj0t52gnDHpvm3?si=ZOSIt3tjQyyY72TByVcrPA" target="_blank" rel="noreferrer">listen to the full EP on spotify &nearr;</a>
+        <a class="zine-info-link" href="/contact/">request a physical copy &rarr;</a>
+      </div>
+    </div>
+
+    {% include "player.njk" %}
+
+    <script>
+    (function() {
+      var pages = document.querySelectorAll('.zine-page');
+      var total = pages.length;
+      var current = 0;
+      var locked = false;
+
+      var prevBtn = document.getElementById('zinePrev');
+      var nextBtn = document.getElementById('zineNext');
+      var counter = document.getElementById('zineCounter');
+      var info = document.getElementById('zineInfo');
+
+      function preload(idx) {
+        if (idx >= 0 && idx < total && pages[idx].loading === 'lazy') {
+          pages[idx].loading = 'eager';
+        }
+      }
+
+      function go(to, direction) {
+        if (locked || to < 0 || to >= total || to === current) return;
+        locked = true;
+
+        var oldPage = pages[current];
+        var newPage = pages[to];
+
+        // Set up entry position for new page
+        newPage.style.transition = 'none';
+        newPage.style.transform = 'translateX(' + (direction > 0 ? '40px' : '-40px') + ')';
+        newPage.style.opacity = '0';
+        newPage.classList.add('zine-page--active');
+
+        // Force reflow
+        void newPage.offsetWidth;
+
+        // Animate both
+        newPage.style.transition = '';
+        newPage.style.transform = '';
+        newPage.style.opacity = '';
+
+        oldPage.style.transform = 'translateX(' + (direction > 0 ? '-40px' : '40px') + ')';
+        oldPage.style.opacity = '0';
+
+        setTimeout(function() {
+          oldPage.classList.remove('zine-page--active');
+          oldPage.style.transform = '';
+          oldPage.style.opacity = '';
+          locked = false;
+        }, 350);
+
+        current = to;
+        update();
+      }
+
+      function update() {
+        counter.textContent = (current + 1) + ' / ' + total;
+        prevBtn.style.display = current === 0 ? 'none' : '';
+        nextBtn.style.display = current === total - 1 ? 'none' : '';
+        info.style.display = current === total - 1 ? '' : 'none';
+
+        // Preload adjacent pages
+        preload(current - 1);
+        preload(current + 1);
+      }
+
+      // Click navigation
+      prevBtn.addEventListener('click', function() { go(current - 1, -1); });
+      nextBtn.addEventListener('click', function() { go(current + 1, 1); });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          e.preventDefault();
+          go(current + 1, 1);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          go(current - 1, -1);
+        } else if (e.key === 'Escape') {
+          window.location.href = '/';
+        }
+      });
+
+      // Touch/swipe navigation
+      var touchStartX = 0;
+      var touchStartY = 0;
+
+      document.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+
+        // Only trigger if horizontal swipe is dominant
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) {
+            go(current + 1, 1);
+          } else {
+            go(current - 1, -1);
+          }
+        }
+      }, { passive: true });
+
+      update();
+    })();
+    </script>
+  </body>
+</html>

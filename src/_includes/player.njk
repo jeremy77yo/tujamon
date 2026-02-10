@@ -1,0 +1,94 @@
+<div class="player" id="player">
+  <button class="player-btn" id="playerBtn" aria-label="Play">▶</button>
+  <button class="player-skip" id="playerPrev" aria-label="Previous track">◂◂</button>
+  <a class="player-track" id="playerTrack" href="#" target="_blank" rel="noreferrer">iridesce</a>
+  <button class="player-skip" id="playerNext" aria-label="Next track">▸▸</button>
+  <div class="player-progress" id="playerProgress">
+    <div class="player-progress-fill" id="playerFill"></div>
+  </div>
+  <span class="player-time" id="playerTime">0:00</span>
+  <a class="player-spotify" href="https://open.spotify.com/album/2w9LWbJeCj0t52gnDHpvm3?si=ZOSIt3tjQyyY72TByVcrPA" target="_blank" rel="noreferrer" aria-label="Listen on Spotify">spotify ↗</a>
+</div>
+
+<script>
+(function(){
+  var tracks = [
+    { title: 'iridesce', src: '/audio/iridesce.mp3', spotify: 'https://open.spotify.com/track/0X4GBeYJ0vLCWLZSjfoCAS' },
+    { title: 'coalesce', src: '/audio/coalesce.mp3', spotify: 'https://open.spotify.com/track/1ZCR1dCL93BzkxgJjPaHQu' },
+    { title: 'fulton', src: '/audio/fulton.mp3', spotify: 'https://open.spotify.com/track/5fH5qwfkwObHv1q0IcDRCl' },
+    { title: 'natoma', src: '/audio/natoma.mp3', spotify: 'https://open.spotify.com/track/24y9db9tnLl1HdjpGwOwWV' },
+    { title: 'sonora', src: '/audio/sonora.mp3', spotify: 'https://open.spotify.com/track/28eBr6ckI7UJ9yWgz6L21M' }
+  ];
+
+  var current = parseInt(sessionStorage.getItem('playerTrack') || '0', 10);
+  if (current >= tracks.length) current = 0;
+  var audio = new Audio();
+  var playing = false;
+  var btn = document.getElementById('playerBtn');
+  var trackEl = document.getElementById('playerTrack');
+  var fill = document.getElementById('playerFill');
+  var timeEl = document.getElementById('playerTime');
+  var bar = document.getElementById('playerProgress');
+
+  function load(i, autoplay) {
+    current = i;
+    sessionStorage.setItem('playerTrack', current);
+    audio.src = tracks[current].src;
+    trackEl.textContent = tracks[current].title;
+    trackEl.href = tracks[current].spotify;
+    fill.style.width = '0%';
+    timeEl.textContent = '0:00';
+    if (autoplay) {
+      audio.play();
+      playing = true;
+      btn.textContent = '❚❚';
+    }
+  }
+
+  function fmt(s) {
+    var m = Math.floor(s / 60);
+    var sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  load(current, false);
+
+  btn.addEventListener('click', function() {
+    if (playing) {
+      audio.pause();
+      playing = false;
+      btn.textContent = '▶';
+    } else {
+      audio.play();
+      playing = true;
+      btn.textContent = '❚❚';
+    }
+  });
+
+  document.getElementById('playerNext').addEventListener('click', function() {
+    load((current + 1) % tracks.length, playing);
+  });
+
+  document.getElementById('playerPrev').addEventListener('click', function() {
+    load((current - 1 + tracks.length) % tracks.length, playing);
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    if (audio.duration) {
+      fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      timeEl.textContent = fmt(audio.currentTime);
+    }
+  });
+
+  audio.addEventListener('ended', function() {
+    load((current + 1) % tracks.length, true);
+  });
+
+  bar.addEventListener('click', function(e) {
+    if (audio.duration) {
+      var rect = bar.getBoundingClientRect();
+      audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+    }
+  });
+})();
+</script>
