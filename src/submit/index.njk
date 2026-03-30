@@ -471,7 +471,7 @@
       var success = document.getElementById('successMsg');
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        fetch('/', { method: 'POST', body: new FormData(form) })
+        fetch('/submit/', { method: 'POST', body: new FormData(form) })
         .then(function(r) {
           if (r.ok) { form.style.display = 'none'; success.classList.add('--show'); window.scrollTo({ top: success.offsetTop - 100, behavior: 'smooth' }); }
           else { alert('Something went wrong. Please try again or email us directly.'); }
