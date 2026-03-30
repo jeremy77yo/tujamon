@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>open call — tu jamon</title>
+    <meta name="description" content="Submit your work for a zine exploring love and limerence. Poetry, collage, visual art, music, fragments — all mediums accepted." />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="open call — tu jamon" />
+    <meta property="og:description" content="Submissions open for a zine on love and limerence. All mediums." />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <style>
+      .oc-page {
+        max-width: 620px;
+        margin: 0 auto;
+        padding: 72px 24px 100px;
+      }
+
+      /* ── Epigraph ── */
+      .oc-epigraph { padding-bottom: 48px; }
+
+      .oc-label {
+        display: inline-block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+        background: rgba(0,0,0,0.04);
+        padding: 5px 12px;
+        border-radius: 999px;
+        margin-bottom: 28px;
+      }
+
+      .oc-quote {
+        font-family: "EB Garamond", Georgia, serif;
+        font-style: italic;
+        font-size: clamp(22px, 4vw, 32px);
+        line-height: 1.5;
+        color: #111;
+        margin-bottom: 12px;
+      }
+
+      .oc-attribution {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 1px;
+      }
+
+      /* ── Body ── */
+      .oc-body { padding-bottom: 24px; }
+
+      .oc-body p {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: 17px;
+        line-height: 1.85;
+        color: #444;
+        margin-bottom: 24px;
+      }
+
+      .oc-body p em { color: #111; }
+
+      .oc-closing {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: 15px;
+        line-height: 1.8;
+        color: #888;
+        margin-top: 8px;
+      }
+
+      .oc-closing span { display: block; }
+
+      .oc-divider {
+        width: 80px;
+        height: 1px;
+        background: rgba(0,0,0,0.1);
+        margin: 40px 0;
+      }
+
+      .oc-section-title {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+        font-weight: 400;
+        margin-bottom: 20px;
+        padding-top: 48px;
+      }
+
+      /* ── Mediums ── */
+      .oc-mediums {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+
+      .oc-medium-tag {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        color: #888;
+        background: rgba(0,0,0,0.04);
+        padding: 6px 14px;
+        border-radius: 999px;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .oc-medium-tag:hover {
+        background: rgba(0,0,0,0.08);
+        color: #111;
+      }
+
+      /* ── Form ── */
+      .oc-form-section { padding-top: 48px; }
+
+      .oc-form {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .oc-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .oc-field label {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+        font-weight: 400;
+      }
+
+      .oc-field input[type="text"],
+      .oc-field input[type="email"] {
+        font-family: var(--font);
+        font-size: 15px;
+        padding: 12px 0;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        background: transparent;
+        color: #111;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .oc-field input[type="text"]:focus,
+      .oc-field input[type="email"]:focus {
+        border-color: #111;
+      }
+
+      .oc-field textarea {
+        font-family: "EB Garamond", Georgia, serif;
+        font-size: 16px;
+        line-height: 1.8;
+        padding: 16px;
+        border: 1px solid rgba(0,0,0,0.08);
+        background: rgba(255,255,255,0.6);
+        color: #111;
+        resize: vertical;
+        min-height: 200px;
+        outline: none;
+        border-radius: 8px;
+        transition: border-color 0.2s ease;
+      }
+
+      .oc-field textarea:focus { border-color: #111; }
+
+      .oc-field textarea::placeholder {
+        color: rgba(0,0,0,0.2);
+        font-style: italic;
+      }
+
+      /* ── Upload ── */
+      .oc-upload {
+        position: relative;
+        border: 1px dashed rgba(0,0,0,0.12);
+        border-radius: 12px;
+        padding: 32px 24px;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .oc-upload:hover {
+        border-color: rgba(0,0,0,0.25);
+        background: rgba(255,255,255,0.5);
+      }
+
+      .oc-upload.--dragover {
+        border-color: #111;
+        background: rgba(0,0,0,0.02);
+      }
+
+      .oc-upload input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .oc-upload-icon {
+        display: block;
+        margin: 0 auto 12px;
+        color: #999;
+        opacity: 0.4;
+      }
+
+      .oc-upload-text {
+        font-size: 13px;
+        color: #888;
+        line-height: 1.6;
+      }
+
+      .oc-upload-text strong { color: #111; font-weight: 500; }
+
+      .oc-upload-hint {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 10px;
+        color: #bbb;
+        margin-top: 8px;
+        display: block;
+      }
+
+      .oc-upload-preview {
+        margin-top: 16px;
+        display: none;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        background: rgba(255,255,255,0.6);
+        border: 1px solid rgba(0,0,0,0.06);
+        border-radius: 8px;
+      }
+
+      .oc-upload-preview.--has-file { display: flex; }
+
+      .oc-upload-preview-name {
+        font-size: 12px;
+        color: #111;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .oc-upload-preview-remove {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 10px;
+        color: #999;
+        cursor: pointer;
+        background: none;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 8px;
+        transition: color 0.2s;
+      }
+
+      .oc-upload-preview-remove:hover { color: #111; }
+
+      /* ── Submit ── */
+      .oc-submit {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+        background: #111;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: opacity 0.15s ease, transform 0.12s ease;
+        align-self: flex-start;
+      }
+
+      .oc-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+      .oc-submit:active { transform: scale(0.98); }
+
+      /* ── Success ── */
+      .oc-success {
+        display: none;
+        padding: 48px 0;
+        text-align: center;
+      }
+
+      .oc-success.--show { display: block; }
+      .oc-success h2 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+      .oc-success p { font-family: "EB Garamond", Georgia, serif; font-style: italic; color: #888; font-size: 15px; }
+
+      .oc-note {
+        font-size: 12px;
+        color: #999;
+        line-height: 1.7;
+        opacity: 0.8;
+        max-width: 400px;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 640px) {
+        .oc-page { padding: 64px 16px 80px; }
+        .oc-field textarea { min-height: 160px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="back-link" href="/" aria-label="Back to site">&larr;</a>
+
+    <div class="oc-page">
+
+      <section class="oc-epigraph">
+        <span class="oc-label">open call for submissions</span>
+        <blockquote class="oc-quote">
+          &ldquo;What I hide by my language, my body utters.&rdquo;
+        </blockquote>
+        <p class="oc-attribution">&mdash; Roland Barthes</p>
+      </section>
+
+      <section class="oc-body">
+        <p>We&rsquo;re accepting submissions for a zine exploring <em>love</em> and <em>limerence</em>&mdash;two experiences that are often confused, blurred, or intertwined.</p>
+
+        <p>We&rsquo;re interested in work that captures the difference between obsession and presence, fixation and care, intensity and clarity. This could look like longing, repetition, misreading, distance, recognition, or release.</p>
+
+        <div class="oc-divider"></div>
+
+        <p>We welcome poetry, collage, visual art, music, fragments, or anything that resists easy explanation. Work doesn&rsquo;t need to be polished or resolved&mdash;unfinished pieces are welcome if they feel honest.</p>
+
+        <p>You don&rsquo;t have to define whether your work is about love or limerence. Ambiguity is part of the theme.</p>
+
+        <div class="oc-divider"></div>
+
+        <p class="oc-closing">
+          <span>Digital and print editions.</span>
+          <span>All mediums accepted.</span>
+        </p>
+        <p class="oc-closing" style="margin-top: 16px;">Submit work that shows rather than explains.</p>
+      </section>
+
+      <section class="oc-body">
+        <h2 class="oc-section-title">accepted mediums</h2>
+        <div class="oc-mediums">
+          <span class="oc-medium-tag">poetry</span>
+          <span class="oc-medium-tag">visual art</span>
+          <span class="oc-medium-tag">collage</span>
+          <span class="oc-medium-tag">photography</span>
+          <span class="oc-medium-tag">video</span>
+          <span class="oc-medium-tag">music</span>
+          <span class="oc-medium-tag">prose fragments</span>
+          <span class="oc-medium-tag">mixed media</span>
+        </div>
+        <p class="oc-note">We accept images (jpg, png, webp, gif), video (mp4, mov), audio (mp3, wav), and text. Max file size 50MB.</p>
+      </section>
+
+      <section class="oc-form-section">
+        <h2 class="oc-section-title">submit your work</h2>
+
+        <form
+          class="oc-form"
+          id="submitForm"
+          name="zine-submissions"
+          method="POST"
+          data-netlify="true"
+          enctype="multipart/form-data"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="zine-submissions" />
+          <p class="oc-field" style="display:none"><input name="bot-field" /></p>
+
+          <div class="oc-field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="how you'd like to be credited" autocomplete="name" />
+          </div>
+
+          <div class="oc-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="so we can reach you" autocomplete="email" />
+          </div>
+
+          <div class="oc-field">
+            <label for="title">Title of Work</label>
+            <input type="text" id="title" name="title" placeholder="if it has one" />
+          </div>
+
+          <div class="oc-field">
+            <label>Upload Your Work</label>
+            <div class="oc-upload" id="uploadZone">
+              <input type="file" id="fileUpload" name="artwork" accept="image/*,video/*,audio/*,.pdf" />
+              <svg class="oc-upload-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16"/></svg>
+              <div class="oc-upload-text">
+                <strong>drop a file here</strong> or click to browse<br>
+                image, video, audio, or pdf
+              </div>
+              <span class="oc-upload-hint">max 50MB</span>
+            </div>
+            <div class="oc-upload-preview" id="uploadPreview">
+              <span class="oc-upload-preview-name" id="uploadFileName"></span>
+              <button type="button" class="oc-upload-preview-remove" id="uploadRemove">remove</button>
+            </div>
+          </div>
+
+          <div class="oc-field">
+            <label for="poetry">Text / Poetry</label>
+            <textarea id="poetry" name="poetry" placeholder="paste your words here if your submission is text-based, or leave a note about your uploaded work..."></textarea>
+          </div>
+
+          <div class="oc-field">
+            <label for="medium">Medium / Description</label>
+            <input type="text" id="medium" name="medium" placeholder="e.g. digital collage, poem, 35mm photograph, voice memo" />
+          </div>
+
+          <button type="submit" class="oc-submit">send it</button>
+
+          <p class="oc-note">your submission is between us until publication. we&rsquo;ll reach out if your work is selected.</p>
+        </form>
+
+        <div class="oc-success" id="successMsg">
+          <h2>received.</h2>
+          <p>thank you for trusting us with your work. we&rsquo;ll be in touch.</p>
+        </div>
+      </section>
+
+      <footer class="site-footer" style="text-align:left; padding-left:0; padding-right:0;">
+        <div class="footer-links" style="justify-content:flex-start;">
+          <a href="/">home</a>
+          <a href="https://instagram.com/tu.jamon" target="_blank" rel="noreferrer">instagram</a>
+          <a href="/contact/">contact</a>
+        </div>
+        <p class="copyright">&copy; 2026 tu jamon</p>
+      </footer>
+    </div>
+
+    <script>
+    (function() {
+      var uploadZone = document.getElementById('uploadZone');
+      var fileInput = document.getElementById('fileUpload');
+      var preview = document.getElementById('uploadPreview');
+      var fileName = document.getElementById('uploadFileName');
+      var removeBtn = document.getElementById('uploadRemove');
+
+      fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0) { fileName.textContent = fileInput.files[0].name; preview.classList.add('--has-file'); }
+      });
+      removeBtn.addEventListener('click', function() { fileInput.value = ''; preview.classList.remove('--has-file'); fileName.textContent = ''; });
+      uploadZone.addEventListener('dragover', function(e) { e.preventDefault(); uploadZone.classList.add('--dragover'); });
+      uploadZone.addEventListener('dragleave', function() { uploadZone.classList.remove('--dragover'); });
+      uploadZone.addEventListener('drop', function(e) {
+        e.preventDefault(); uploadZone.classList.remove('--dragover');
+        if (e.dataTransfer.files.length > 0) { fileInput.files = e.dataTransfer.files; fileName.textContent = e.dataTransfer.files[0].name; preview.classList.add('--has-file'); }
+      });
+
+      var form = document.getElementById('submitForm');
+      var success = document.getElementById('successMsg');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch('/', { method: 'POST', body: new FormData(form) })
+        .then(function(r) {
+          if (r.ok) { form.style.display = 'none'; success.classList.add('--show'); window.scrollTo({ top: success.offsetTop - 100, behavior: 'smooth' }); }
+          else { alert('Something went wrong. Please try again or email us directly.'); }
+        })
+        .catch(function() { alert('Something went wrong. Please try again or email us directly.'); });
+      });
+    })();
+    </script>
+  </body>
+</html>
