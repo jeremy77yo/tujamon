@@ -407,11 +407,11 @@
           <div class="oc-field">
             <label>Upload Your Work</label>
             <div class="oc-upload" id="uploadZone">
-              <input type="file" id="fileUpload" name="artwork" accept="image/*,video/*,audio/*,.pdf" />
+              <input type="file" id="fileUpload" name="artwork" accept="image/*,video/*,audio/*,.pdf" multiple />
               <svg class="oc-upload-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16"/></svg>
               <div class="oc-upload-text">
-                <strong>drop a file here</strong> or click to browse<br>
-                image, video, audio, or pdf
+                <strong>drop files here</strong> or click to browse<br>
+                images, video, audio, or pdf — multiple files ok
               </div>
               <span class="oc-upload-hint">max 50MB</span>
             </div>
@@ -460,15 +460,23 @@
       var fileName = document.getElementById('uploadFileName');
       var removeBtn = document.getElementById('uploadRemove');
 
-      fileInput.addEventListener('change', function() {
-        if (fileInput.files.length > 0) { fileName.textContent = fileInput.files[0].name; preview.classList.add('--has-file'); }
-      });
-      removeBtn.addEventListener('click', function() { fileInput.value = ''; preview.classList.remove('--has-file'); fileName.textContent = ''; });
+      function updatePreview() {
+        if (fileInput.files.length > 0) {
+          var names = Array.from(fileInput.files).map(function(f) { return f.name; });
+          fileName.textContent = names.length === 1 ? names[0] : names.length + ' files selected';
+          preview.classList.add('--has-file');
+        } else {
+          preview.classList.remove('--has-file');
+          fileName.textContent = '';
+        }
+      }
+      fileInput.addEventListener('change', updatePreview);
+      removeBtn.addEventListener('click', function() { fileInput.value = ''; updatePreview(); });
       uploadZone.addEventListener('dragover', function(e) { e.preventDefault(); uploadZone.classList.add('--dragover'); });
       uploadZone.addEventListener('dragleave', function() { uploadZone.classList.remove('--dragover'); });
       uploadZone.addEventListener('drop', function(e) {
         e.preventDefault(); uploadZone.classList.remove('--dragover');
-        if (e.dataTransfer.files.length > 0) { fileInput.files = e.dataTransfer.files; fileName.textContent = e.dataTransfer.files[0].name; preview.classList.add('--has-file'); }
+        if (e.dataTransfer.files.length > 0) { fileInput.files = e.dataTransfer.files; updatePreview(); }
       });
 
       var form = document.getElementById('submitForm');
