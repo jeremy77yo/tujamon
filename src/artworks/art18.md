@@ -1,5 +1,5 @@
 ---
-sortOrder: 18
+sortOrder: 1
 title: "Art 18"
 image: "/images/art18.webp"
 tags: artworks

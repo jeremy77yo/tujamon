@@ -1,5 +1,5 @@
 ---
-sortOrder: 55
+sortOrder: 106
 title: "Art 55"
 image: "/images/art55.webp"
 tags: artworks

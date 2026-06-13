@@ -1,5 +1,5 @@
 ---
-sortOrder: 27
+sortOrder: 74
 title: "Art 27"
 image: "/images/art27.webp"
 tags: artworks

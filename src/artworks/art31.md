@@ -1,5 +1,5 @@
 ---
-sortOrder: 31
+sortOrder: 5
 title: "Art 31"
 image: "/images/art31.webp"
 tags: artworks

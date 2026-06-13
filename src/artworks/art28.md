@@ -1,5 +1,5 @@
 ---
-sortOrder: 28
+sortOrder: 46
 title: "Art 28"
 image: "/images/art28.webp"
 tags: artworks

@@ -1,5 +1,5 @@
 ---
-sortOrder: 13
+sortOrder: 4
 title: "Art 13"
 image: "/images/art13.webp"
 tags: artworks

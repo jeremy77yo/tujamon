@@ -1,5 +1,5 @@
 ---
-sortOrder: 68
+sortOrder: 127
 title: "Art 68"
 image: "/images/art68.webp"
 tags: artworks

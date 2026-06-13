@@ -1,5 +1,5 @@
 ---
-sortOrder: 65
+sortOrder: 95
 title: "Art 65"
 image: "/images/art65.webp"
 tags: artworks

@@ -1,5 +1,5 @@
 ---
-sortOrder: 17
+sortOrder: 58
 title: "Art 17"
 image: "/images/art17.webp"
 tags: artworks

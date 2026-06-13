@@ -1,5 +1,5 @@
 ---
-sortOrder: 6
+sortOrder: 69
 title: "Art 6"
 image: "/images/art6.webp"
 tags: artworks

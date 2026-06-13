@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>tu jamon — layout preview v3 (Tyler Mitchell flavor)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="src/style.css" />
+
+  <style>
+    /* ──────────────────────────────────────────────────────────────
+       PREVIEW v3 — Tyler Mitchell flavor.
+       One flat grid. Density toggle is the headline interaction at top.
+       Default = dense (wall of stamps). Years live only in the lightbox
+       caption — not in the layout. Hover focus + click-to-enlarge stay.
+       ────────────────────────────────────────────────────────────── */
+
+    .preview-banner {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #2a1d2a;
+      color: #ece2d7;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 16px;
+    }
+
+    /* — Control bar at top — */
+    .archive-bar {
+      max-width: 1600px;
+      margin: 28px auto 24px;
+      padding: 0 32px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      font-family: "Space Grotesk", sans-serif;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 720px) {
+      .archive-bar { padding: 0 16px; margin-top: 20px; }
+    }
+
+    .archive-bar-left {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+    }
+    .archive-count {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #968096;
+      font-variant-numeric: tabular-nums;
+    }
+    .archive-count strong {
+      color: #2a1d2a;
+      font-weight: 500;
+    }
+
+    /* Density toggle — headline interaction */
+    .density-bar {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #968096;
+    }
+    .density-bar-label {
+      margin-right: 8px;
+      color: #968096;
+    }
+    .density-bar button {
+      background: none;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: #968096;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      transition: color 0.2s ease, background 0.2s ease;
+      font-variant-numeric: tabular-nums;
+    }
+    .density-bar button:hover { color: #2a1d2a; }
+    .density-bar button.active {
+      color: #ece2d7;
+      background: #2a1d2a;
+    }
+
+    /* — One flat grid — */
+    .archive {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+    @media (max-width: 720px) {
+      .archive { padding: 0 16px 60px; }
+    }
+
+    .archive-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .archive[data-density="50"] .archive-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .archive[data-density="200"] .archive-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .archive[data-density="500"] .archive-grid {
+      grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+      gap: 4px;
+    }
+
+    /* — Tile — */
+    .tile {
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
+                  filter 0.32s ease,
+                  opacity 0.32s ease;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #f4ece2;
+    }
+    .tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .archive-grid:hover .tile {
+      filter: saturate(0.6) brightness(0.94);
+      opacity: 0.5;
+    }
+    .archive-grid .tile:hover {
+      filter: saturate(1.05) brightness(1.02);
+      opacity: 1;
+      transform: scale(1.04);
+      z-index: 2;
+    }
+    .archive[data-density="500"] .tile:hover {
+      transform: scale(1.18);  /* tiny tiles need a bigger pop on hover */
+    }
+
+    /* — Lightbox — */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 14, 20, 0.92);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 40px;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .lightbox.open { display: flex; opacity: 1; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 92vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      background: #ece2d7;
+    }
+    .lightbox-caption {
+      color: #ece2d7;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      opacity: 0.85;
+    }
+    .lightbox-caption .lb-year {
+      color: #a89cab;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .lightbox-caption a {
+      color: #d4b5d4;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 181, 212, 0.5);
+      padding-bottom: 1px;
+    }
+    .lb-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #ece2d7;
+      font-size: 36px;
+      font-family: "EB Garamond", serif;
+      cursor: pointer;
+      padding: 12px 18px;
+      opacity: 0.55;
+      transition: opacity 0.2s ease;
+      line-height: 1;
+    }
+    .lb-btn:hover { opacity: 1; }
+    .lb-prev { left: -8px; }
+    .lb-next { right: -8px; }
+    .lb-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: none; border: none;
+      color: #ece2d7; font-size: 32px;
+      cursor: pointer; opacity: 0.6;
+      line-height: 1; padding: 4px 8px;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .lb-close:hover { opacity: 1; }
+    .lb-counter {
+      position: absolute;
+      top: 24px; left: 28px;
+      color: #ece2d7;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+    @media (max-width: 720px) {
+      .lightbox { padding: 16px; }
+      .lb-prev, .lb-next { font-size: 28px; padding: 8px 12px; }
+      .lb-prev { left: 0; }
+      .lb-next { right: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="preview-banner">layout preview v3 · tyler mitchell flavor · wall of stamps · not live</div>
+
+<header class="site-header">
+  <h1 class="site-title">tu jamon</h1>
+  <nav class="site-nav" aria-label="Site">
+    <a href="/bio/">bio</a>
+    <a href="/shop/">shop</a>
+    <a href="/contact/">email</a>
+    <a href="https://instagram.com/tu.jamon" target="_blank" rel="noreferrer">instagram</a>
+    <a href="/zine/">zine</a>
+    <a href="https://twingradients.xyz/love-and-limerence/" target="_blank" rel="noreferrer">love and limerence</a>
+    <a href="/submit/">open call</a>
+    <a href="https://open.spotify.com/artist/7jsdfw3TkurRHbMP5Xmeq8" target="_blank" rel="noreferrer">spotify</a>
+    <a href="https://music.apple.com/us/artist/twin-g/1861072959" target="_blank" rel="noreferrer">apple</a>
+  </nav>
+</header>
+
+<a class="zine-promo" href="https://twingradients.xyz/love-and-limerence/" target="_blank" rel="noreferrer">
+  <span class="zine-promo-label">new</span>
+  <span class="zine-promo-text">love and limerence</span>
+  <span class="zine-promo-arrow">&rarr;</span>
+</a>
+
+<!-- ── Control bar: count + density toggle ── -->
+<div class="archive-bar">
+  <div class="archive-bar-left">
+    <span class="archive-count"><strong>30</strong> works</span>
+  </div>
+  <div class="density-bar" role="group" aria-label="Density">
+    <span class="density-bar-label">view</span>
+    <button type="button" data-density="50">50</button>
+    <button type="button" data-density="200" class="active">200</button>
+    <button type="button" data-density="500">500</button>
+  </div>
+</div>
+
+<div class="archive" data-density="200" id="archive">
+  <div class="archive-grid">
+    <a class="tile" href="/artworks/art1/" data-id="1" data-title="Art 1" data-year="2026"><img src="src/images/art1.webp" alt="Art 1" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art2/" data-id="2" data-title="Art 2" data-year="2026"><img src="src/images/art2.webp" alt="Art 2" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art3/" data-id="3" data-title="Art 3" data-year="2026"><img src="src/images/art3.webp" alt="Art 3" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art4/" data-id="4" data-title="Art 4" data-year="2026"><img src="src/images/art4.webp" alt="Art 4" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art5/" data-id="5" data-title="Art 5" data-year="2026"><img src="src/images/art5.webp" alt="Art 5" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art6/" data-id="6" data-title="Art 6" data-year="2026"><img src="src/images/art6.webp" alt="Art 6" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art7/" data-id="7" data-title="Art 7" data-year="2026"><img src="src/images/art7.webp" alt="Art 7" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art8/" data-id="8" data-title="Art 8" data-year="2025"><img src="src/images/art8.webp" alt="Art 8" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art9/" data-id="9" data-title="Art 9" data-year="2025"><img src="src/images/art9.webp" alt="Art 9" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art10/" data-id="10" data-title="Art 10" data-year="2025"><img src="src/images/art10.webp" alt="Art 10" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art11/" data-id="11" data-title="Art 11" data-year="2025"><img src="src/images/art11.webp" alt="Art 11" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art12/" data-id="12" data-title="Art 12" data-year="2025"><img src="src/images/art12.webp" alt="Art 12" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art13/" data-id="13" data-title="Art 13" data-year="2025"><img src="src/images/art13.webp" alt="Art 13" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art14/" data-id="14" data-title="Art 14" data-year="2025"><img src="src/images/art14.webp" alt="Art 14" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art15/" data-id="15" data-title="Art 15" data-year="2025"><img src="src/images/art15.webp" alt="Art 15" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art16/" data-id="16" data-title="Art 16" data-year="2024"><img src="src/images/art16.webp" alt="Art 16" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art17/" data-id="17" data-title="Art 17" data-year="2024"><img src="src/images/art17.webp" alt="Art 17" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art18/" data-id="18" data-title="Art 18" data-year="2024"><img src="src/images/art18.webp" alt="Art 18" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art19/" data-id="19" data-title="Art 19" data-year="2024"><img src="src/images/art19.webp" alt="Art 19" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art20/" data-id="20" data-title="Art 20" data-year="2024"><img src="src/images/art20.webp" alt="Art 20" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art21/" data-id="21" data-title="Art 21" data-year="2024"><img src="src/images/art21.webp" alt="Art 21" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art22/" data-id="22" data-title="Art 22" data-year="2024"><img src="src/images/art22.webp" alt="Art 22" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art23/" data-id="23" data-title="Art 23" data-year="2024"><img src="src/images/art23.webp" alt="Art 23" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art24/" data-id="24" data-title="Art 24" data-year="2023"><img src="src/images/art24.webp" alt="Art 24" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art25/" data-id="25" data-title="Art 25" data-year="2023"><img src="src/images/art25.webp" alt="Art 25" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art26/" data-id="26" data-title="Art 26" data-year="2023"><img src="src/images/art26.webp" alt="Art 26" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art27/" data-id="27" data-title="Art 27" data-year="2023"><img src="src/images/art27.webp" alt="Art 27" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art28/" data-id="28" data-title="Art 28" data-year="2023"><img src="src/images/art28.webp" alt="Art 28" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art29/" data-id="29" data-title="Art 29" data-year="2023"><img src="src/images/art29.webp" alt="Art 29" loading="lazy" /></a>
+    <a class="tile" href="/artworks/art30/" data-id="30" data-title="Art 30" data-year="2023"><img src="src/images/art30.webp" alt="Art 30" loading="lazy" /></a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="https://instagram.com/tu.jamon" target="_blank" rel="noreferrer">instagram</a>
+    <a href="/contact/">contact</a>
+  </div>
+  <p class="copyright">&copy; 2026 tu jamon · preview file</p>
+</footer>
+
+<!-- ── Lightbox ── -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <span class="lb-counter" id="lbCounter">1 / 30</span>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-caption">
+      <span id="lbTitle">Title</span>
+      <span class="lb-year" id="lbYear">2026</span>
+      <a id="lbLink" href="#">view full page →</a>
+    </div>
+  </div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next">›</button>
+</div>
+
+<script>
+(function() {
+  var archive = document.getElementById('archive');
+  var tiles = Array.from(document.querySelectorAll('.tile'));
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  var lbTitle = document.getElementById('lbTitle');
+  var lbYear = document.getElementById('lbYear');
+  var lbLink = document.getElementById('lbLink');
+  var lbCounter = document.getElementById('lbCounter');
+  var idx = 0;
+
+  function open(i) {
+    idx = (i + tiles.length) % tiles.length;
+    var t = tiles[idx];
+    var img = t.querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbTitle.textContent = t.dataset.title || img.alt;
+    lbYear.textContent = t.dataset.year || '';
+    lbLink.href = t.getAttribute('href');
+    lbCounter.textContent = (idx + 1) + ' / ' + tiles.length;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function next() { open(idx + 1); }
+  function prev() { open(idx - 1); }
+
+  tiles.forEach(function(t, i) {
+    t.addEventListener('click', function(e) { e.preventDefault(); open(i); });
+  });
+
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbNext').addEventListener('click', next);
+  document.getElementById('lbPrev').addEventListener('click', prev);
+  lb.addEventListener('click', function(e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') next();
+    else if (e.key === 'ArrowLeft') prev();
+  });
+
+  // Density toggle
+  var densityBtns = document.querySelectorAll('.density-bar button');
+  densityBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var d = btn.dataset.density;
+      archive.dataset.density = d;
+      densityBtns.forEach(function(b) { b.classList.toggle('active', b === btn); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

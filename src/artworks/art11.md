@@ -1,5 +1,5 @@
 ---
-sortOrder: 11
+sortOrder: 10
 title: "Art 11"
 image: "/images/art11.webp"
 tags: artworks

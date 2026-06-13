@@ -1,5 +1,5 @@
 ---
-sortOrder: 37
+sortOrder: 129
 title: "Art 37"
 image: "/images/art37.webp"
 tags: artworks

@@ -1,5 +1,5 @@
 ---
-sortOrder: 32
+sortOrder: 37
 title: "Art 32"
 image: "/images/art32.webp"
 tags: artworks

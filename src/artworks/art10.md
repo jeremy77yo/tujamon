@@ -1,5 +1,5 @@
 ---
-sortOrder: 10
+sortOrder: 89
 title: "Art 10"
 image: "/images/art10.webp"
 tags: artworks

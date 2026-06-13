@@ -1,5 +1,5 @@
 ---
-sortOrder: 19
+sortOrder: 7
 title: "Art 19"
 image: "/images/art19.webp"
 tags: artworks

@@ -1,5 +1,5 @@
 ---
-sortOrder: -1
+sortOrder: 87
 title: "Art 97"
 image: "/images/art97.webp"
 tags: artworks

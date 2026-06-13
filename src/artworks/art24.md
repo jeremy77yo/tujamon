@@ -1,5 +1,5 @@
 ---
-sortOrder: 24
+sortOrder: 63
 title: "Art 24"
 image: "/images/art24.webp"
 tags: artworks

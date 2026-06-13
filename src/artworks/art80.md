@@ -1,5 +1,5 @@
 ---
-sortOrder: 80
+sortOrder: 131
 title: "Art 80"
 image: "/images/art80.webp"
 tags: artworks

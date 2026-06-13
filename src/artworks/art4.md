@@ -1,5 +1,5 @@
 ---
-sortOrder: 4
+sortOrder: 32
 title: "Art 4"
 image: "/images/art4.webp"
 tags: artworks

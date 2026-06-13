@@ -1,5 +1,5 @@
 ---
-sortOrder: 21
+sortOrder: 114
 title: "Art 21"
 image: "/images/art21.webp"
 tags: artworks

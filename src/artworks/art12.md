@@ -1,5 +1,5 @@
 ---
-sortOrder: 12
+sortOrder: 103
 title: "Art 12"
 image: "/images/art12.webp"
 tags: artworks
